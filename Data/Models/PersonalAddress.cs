@@ -10,6 +10,7 @@ public class PersonalAddress
 {
     public int FK_Personal { get; set; }
     public int FK_Address { get; set; }
+
     public Personal Personal { get; set; }
     public Address Address { get; set;}
 }

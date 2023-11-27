@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,10 +11,14 @@ namespace Agro.Data;
 
 public class ApplicationDBContext : DbContext
 {
-    public ApplicationDBContext(DbContextOptions<ApplicationDBContext> options) : base(options) { 
-        
+    
+
+    public ApplicationDBContext()
+    {
 
     }
+
+
 
     public DbSet<User> Users { get; set; } 
     public DbSet<Personal> Personals { get; set; } 
@@ -62,5 +67,11 @@ public class ApplicationDBContext : DbContext
 
 
         base.OnModelCreating(modelBuilder);
+    }
+
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        optionsBuilder.UseSqlServer(ConfigurationManager.ConnectionStrings["AgroConnection"].ConnectionString);
+        base.OnConfiguring(optionsBuilder);
     }
 }

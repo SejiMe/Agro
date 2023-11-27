@@ -8,13 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Agro.Features.Authentication
+namespace Agro.Features.Person
 {
-    public partial class AuthRegistryForm : Form
+    public partial class ProfileController : UserControl
     {
-        public AuthRegistryForm()
+        public ProfileController()
         {
             InitializeComponent();
+        }
+
+        private void toolTip1_Popup(object sender, PopupEventArgs e)
+        {
+
         }
     }
 }

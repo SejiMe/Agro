@@ -22,18 +22,23 @@ public class Personal
 
     [AllowNull, MaxLength(150)]
     public string? MiddleName { get; set; }
-    public char Gender { get; set; }
+    [AllowNull, MaxLength(6)]
+    public string? Suffix { get; set; }
+    public char? Gender { get; set; }
 
     [MaxLength(30)]
-    public string civil_status { get; set; } = "Single";
-    
+    public string? civil_status { get; set; } = "Single";
+
+    [Required]
+    public bool IsApprove { get; set; } = false;
+
     [Column(TypeName = "varbinary(max)")]
     public byte[]? Image { get; set; }
 
     [AllowNull, MaxLength(14)]
-    public string ContactNumber { get; set; }
+    public string? ContactNumber { get; set; }
 
-    [Required, ForeignKey(nameof(FK_User))]
+    [Column("FK_User")]
     public User FK_User { get; set; }
 
     // This person can have as many insurance they can have

@@ -22,7 +22,7 @@ public class Address
     public string HouseNumber { get; set; }
     [MaxLength(70), AllowNull]
     public string Street { get; set; }
-
+     
     [MaxLength(50)]
     public string Barangay { get; set; }
 

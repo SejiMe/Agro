@@ -17,7 +17,7 @@ namespace Agro.Data.Models;
 public class User
 {
     [Key, Column(TypeName = "uniqueidentifier")]
-    public Guid PK_User { get; set; } = Guid.NewGuid();
+    public Guid? PK_User { get; set; } = Guid.NewGuid();
 
     [MaxLength(40), Required]
     public string UserName { get; set; }
@@ -30,8 +30,6 @@ public class User
 
     [MaxLength(128), Required]
     public string Salt { get; set; }
-
-    
 
     [MaxLength(25)]
     public string Role { get; set; }

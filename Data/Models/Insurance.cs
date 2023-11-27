@@ -16,16 +16,14 @@ public class Insurance
     public Guid PK_Insurance { get; set; } = Guid.NewGuid();
 
     // W for waiting
-    [MaxLength(1)]
-    public char Remarks { get; set; } = 'W';
+    public bool Remarks { get; set; } = false;
     public DateTime DateApplied { get; set; } = DateTime.Now;
     
     [AllowNull]
     public DateTime DateModified { get; set; }
 
-    [ForeignKey(nameof(FK_Farm))]
-    public Farm FK_Farm { get; set; } 
-    
-    [ForeignKey(nameof(FK_User))]
-    public User? FK_User { get; set; }
+    [Column("FK_Farm")]
+    public Farm? FK_Farm { get; set; }
+    [Column("FK_User")]
+    public User? FK_User { get; set; } = null!;
 }

@@ -1,6 +1,12 @@
 using Agro.Data;
+using Agro.Features.Authentication;
+using Agro.Features.Layout;
+using Agro.Features.Person;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using System.Configuration;
+
 
 namespace Agro
 {
@@ -8,43 +14,43 @@ namespace Agro
     {
         /// <summary>
         ///  The main entry point for the application.
-        /// </summary>
-        public static ServiceProvider ServiceProvider { get; private set; }
 
-        static void Config()
-        {
-            // Fluent Style
-            ServiceProvider = new ServiceCollection()
-                .AddTransient<Form1>()
-                .AddDbContext<ApplicationDBContext>(options =>
-                {
-                    options.UseSqlServer("Data Source=JIVAN;Initial Catalog=AgroDB;Integrated Security=True;Connect Timeout=30;Encrypt=True;Trust Server Certificate=True;Application Intent=ReadWrite;Multi Subnet Failover=False");
-                })
-                .BuildServiceProvider();
-        }
-
-        static void Shutdown()
-        {
-            ServiceProvider?.Dispose();
-        }
-
-        
         [STAThread]
         static void Main()
         {
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
 
-            //ServiceCollection services = new ServiceCollection();
 
+            var services = new ServiceCollection();
+            ConfigureServices(services);
+
+            using var serviceProvider = services.BuildServiceProvider();
+            using var login = serviceProvider.GetRequiredService<AuthForm>();
             
+            Application.Run(login);
+        }
+       
+        private static void ConfigureServices(IServiceCollection services)
+        {
+            // ...
+            services.AddDbContext<ApplicationDBContext>();
+            services.AddScoped<IPersonalRepository, PersonalRepository>();
+            services.AddSingleton<IAuthenticationRepository, AuthenticationRepository>();
 
-            Config();
-           
-            var form1 = ServiceProvider.GetRequiredService<Form1>();
-            
-            Application.Run(form1);
+            // Controllers 
+            services.AddSingleton<RegisterUC>();
+            services.AddSingleton<AuthUC>();
+            services.AddSingleton<GeneralNavigation>();
+            services.AddScoped<ProfileController>();
+
+            // Forms
+            services.AddSingleton<AuthForm>();
+            services.AddSingleton<MainForm>();            
+            // ...
         }
     }
 }
