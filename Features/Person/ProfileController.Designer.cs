@@ -36,11 +36,11 @@
             RiceFarmAddressBtn = new Button();
             RiceAddressText = new TextBox();
             label7 = new Label();
-            comboBox1 = new ComboBox();
-            dateTimePicker1 = new DateTimePicker();
+            GenderCB = new ComboBox();
+            DateTimePicker = new DateTimePicker();
             label6 = new Label();
             textBox6 = new TextBox();
-            textBox5 = new TextBox();
+            ContactNumberText = new TextBox();
             label5 = new Label();
             groupBox1 = new GroupBox();
             label4 = new Label();
@@ -60,10 +60,10 @@
             CornAreaText = new TextBox();
             CornFarmAddressBtn = new Button();
             CornAddressText = new TextBox();
-            textBox1 = new TextBox();
+            SpouseText = new TextBox();
             label9 = new Label();
             label10 = new Label();
-            textBox2 = new TextBox();
+            AssociationText = new TextBox();
             groupBox2.SuspendLayout();
             groupBox1.SuspendLayout();
             groupBox3.SuspendLayout();
@@ -80,6 +80,7 @@
             CurrentAddressEditBtn.Size = new Size(30, 23);
             CurrentAddressEditBtn.TabIndex = 24;
             CurrentAddressEditBtn.UseVisualStyleBackColor = true;
+            CurrentAddressEditBtn.Click += CurrentAddressEditBtn_Click;
             // 
             // label8
             // 
@@ -107,7 +108,7 @@
             groupBox2.Controls.Add(RiceAreaText);
             groupBox2.Controls.Add(RiceFarmAddressBtn);
             groupBox2.Controls.Add(RiceAddressText);
-            groupBox2.Location = new Point(66, 356);
+            groupBox2.Location = new Point(66, 365);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(849, 60);
             groupBox2.TabIndex = 22;
@@ -151,26 +152,26 @@
             label7.TabIndex = 21;
             label7.Text = "Gender";
             // 
-            // comboBox1
+            // GenderCB
             // 
-            comboBox1.Anchor = AnchorStyles.Top;
-            comboBox1.DropDownWidth = 120;
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "Male", "Female" });
-            comboBox1.Location = new Point(689, 166);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(226, 23);
-            comboBox1.TabIndex = 20;
+            GenderCB.Anchor = AnchorStyles.Top;
+            GenderCB.DropDownWidth = 120;
+            GenderCB.FormattingEnabled = true;
+            GenderCB.Items.AddRange(new object[] { "Male", "Female" });
+            GenderCB.Location = new Point(689, 166);
+            GenderCB.Name = "GenderCB";
+            GenderCB.Size = new Size(226, 23);
+            GenderCB.TabIndex = 20;
             // 
-            // dateTimePicker1
+            // DateTimePicker
             // 
-            dateTimePicker1.Anchor = AnchorStyles.Top;
-            dateTimePicker1.Format = DateTimePickerFormat.Short;
-            dateTimePicker1.Location = new Point(373, 166);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(310, 23);
-            dateTimePicker1.TabIndex = 19;
-            dateTimePicker1.Value = new DateTime(2023, 11, 27, 0, 0, 0, 0);
+            DateTimePicker.Anchor = AnchorStyles.Top;
+            DateTimePicker.Format = DateTimePickerFormat.Short;
+            DateTimePicker.Location = new Point(373, 166);
+            DateTimePicker.Name = "DateTimePicker";
+            DateTimePicker.Size = new Size(310, 23);
+            DateTimePicker.TabIndex = 19;
+            DateTimePicker.Value = new DateTime(2023, 11, 27, 0, 0, 0, 0);
             // 
             // label6
             // 
@@ -192,14 +193,14 @@
             textBox6.TabIndex = 17;
             textBox6.Text = "+63";
             // 
-            // textBox5
+            // ContactNumberText
             // 
-            textBox5.Anchor = AnchorStyles.Top;
-            textBox5.Location = new Point(117, 166);
-            textBox5.Name = "textBox5";
-            textBox5.PlaceholderText = "09123456789";
-            textBox5.Size = new Size(250, 23);
-            textBox5.TabIndex = 16;
+            ContactNumberText.Anchor = AnchorStyles.Top;
+            ContactNumberText.Location = new Point(117, 166);
+            ContactNumberText.Name = "ContactNumberText";
+            ContactNumberText.PlaceholderText = "09123456789";
+            ContactNumberText.Size = new Size(250, 23);
+            ContactNumberText.TabIndex = 16;
             // 
             // label5
             // 
@@ -283,6 +284,7 @@
             MiddleNameText.Name = "MiddleNameText";
             MiddleNameText.Size = new Size(212, 30);
             MiddleNameText.TabIndex = 4;
+            MiddleNameText.TextChanged += MiddleNameText_TextChanged;
             // 
             // label1
             // 
@@ -356,7 +358,7 @@
             groupBox4.Controls.Add(CornAreaText);
             groupBox4.Controls.Add(CornFarmAddressBtn);
             groupBox4.Controls.Add(CornAddressText);
-            groupBox4.Location = new Point(66, 431);
+            groupBox4.Location = new Point(65, 442);
             groupBox4.Name = "groupBox4";
             groupBox4.Size = new Size(849, 60);
             groupBox4.TabIndex = 26;
@@ -389,14 +391,14 @@
             CornAddressText.Size = new Size(324, 23);
             CornAddressText.TabIndex = 0;
             // 
-            // textBox1
+            // SpouseText
             // 
-            textBox1.Anchor = AnchorStyles.Top;
-            textBox1.Location = new Point(73, 270);
-            textBox1.Name = "textBox1";
-            textBox1.PlaceholderText = "Spouse's Name";
-            textBox1.Size = new Size(842, 23);
-            textBox1.TabIndex = 27;
+            SpouseText.Anchor = AnchorStyles.Top;
+            SpouseText.Location = new Point(73, 270);
+            SpouseText.Name = "SpouseText";
+            SpouseText.PlaceholderText = "Spouse's Name";
+            SpouseText.Size = new Size(842, 23);
+            SpouseText.TabIndex = 27;
             // 
             // label9
             // 
@@ -418,23 +420,23 @@
             label10.TabIndex = 30;
             label10.Text = "Association";
             // 
-            // textBox2
+            // AssociationText
             // 
-            textBox2.Anchor = AnchorStyles.Top;
-            textBox2.Location = new Point(72, 321);
-            textBox2.Name = "textBox2";
-            textBox2.PlaceholderText = "Association";
-            textBox2.Size = new Size(842, 23);
-            textBox2.TabIndex = 29;
+            AssociationText.Anchor = AnchorStyles.Top;
+            AssociationText.Location = new Point(72, 321);
+            AssociationText.Name = "AssociationText";
+            AssociationText.PlaceholderText = "Association";
+            AssociationText.Size = new Size(842, 23);
+            AssociationText.TabIndex = 29;
             // 
             // ProfileController
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(label10);
-            Controls.Add(textBox2);
+            Controls.Add(AssociationText);
             Controls.Add(label9);
-            Controls.Add(textBox1);
+            Controls.Add(SpouseText);
             Controls.Add(groupBox4);
             Controls.Add(groupBox3);
             Controls.Add(CurrentAddressEditBtn);
@@ -442,15 +444,16 @@
             Controls.Add(textBox7);
             Controls.Add(groupBox2);
             Controls.Add(label7);
-            Controls.Add(comboBox1);
-            Controls.Add(dateTimePicker1);
+            Controls.Add(GenderCB);
+            Controls.Add(DateTimePicker);
             Controls.Add(label6);
             Controls.Add(textBox6);
-            Controls.Add(textBox5);
+            Controls.Add(ContactNumberText);
             Controls.Add(label5);
             Controls.Add(groupBox1);
             Name = "ProfileController";
             Size = new Size(980, 608);
+            Load += ProfileController_Load;
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
             groupBox1.ResumeLayout(false);
@@ -472,11 +475,11 @@
         private Button RiceFarmAddressBtn;
         private TextBox RiceAddressText;
         private Label label7;
-        private ComboBox comboBox1;
-        private DateTimePicker dateTimePicker1;
+        private ComboBox GenderCB;
+        private DateTimePicker DateTimePicker;
         private Label label6;
         private TextBox textBox6;
-        private TextBox textBox5;
+        private TextBox ContactNumberText;
         private Label label5;
         private GroupBox groupBox1;
         private Label label4;
@@ -496,9 +499,9 @@
         private TextBox CommodityText;
         private Button HVCDPAddressBtn;
         private TextBox HVCDPAddressText;
-        private TextBox textBox1;
+        private TextBox SpouseText;
         private Label label9;
         private Label label10;
-        private TextBox textBox2;
+        private TextBox AssociationText;
     }
 }

@@ -4,10 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Agro.Features.Address
+namespace Agro.Features.Farms
 {
-    public class AddressRepository 
+    public class FarmDTO
+    {
+        
+    }
+
+    public class FarmCommodityDTO
     {
 
     }
+
 }

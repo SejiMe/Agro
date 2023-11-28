@@ -1,4 +1,5 @@
 using Agro.Data;
+using Agro.Features.Addresses;
 using Agro.Features.Authentication;
 using Agro.Features.Farms;
 using Agro.Features.Layout;
@@ -42,6 +43,7 @@ namespace Agro
             services.AddScoped<IPersonalRepository, PersonalRepository>();
             services.AddSingleton<IAuthenticationRepository, AuthenticationRepository>();
             services.AddScoped<IFarmRepository, FarmRepository>();
+            services.AddTransient<IAddressRepository, AddressRepository>();
 
             // Controllers 
             services.AddSingleton<RegisterUC>();

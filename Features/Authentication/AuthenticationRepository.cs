@@ -81,7 +81,7 @@ public class AuthenticationRepository : IAuthenticationRepository
 
     public AuthenticationDTO GetAuthenticationDetails()
     {
-        if (currentUser != null)
+        if (currentUser != Guid.Empty)
         {
             var res = _context.Personals
                 .Include(personal => personal.FK_User)

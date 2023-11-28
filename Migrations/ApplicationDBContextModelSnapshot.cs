@@ -67,7 +67,7 @@ namespace Agro.Migrations
 
                     b.HasKey("PK_Address");
 
-                    b.ToTable("Addresses");
+                    b.ToTable("Addresses", (string)null);
                 });
 
             modelBuilder.Entity("Agro.Data.Models.Commodity", b =>
@@ -90,7 +90,7 @@ namespace Agro.Migrations
 
                     b.HasKey("PK_Commodity");
 
-                    b.ToTable("Commodities");
+                    b.ToTable("Commodities", (string)null);
                 });
 
             modelBuilder.Entity("Agro.Data.Models.Farm", b =>
@@ -145,7 +145,7 @@ namespace Agro.Migrations
 
                     b.HasIndex("Personal");
 
-                    b.ToTable("Farms");
+                    b.ToTable("Farms", (string)null);
                 });
 
             modelBuilder.Entity("Agro.Data.Models.FarmCommodity", b =>
@@ -160,7 +160,7 @@ namespace Agro.Migrations
 
                     b.HasIndex("FK_Commodity");
 
-                    b.ToTable("FarmCommodities");
+                    b.ToTable("FarmCommodities", (string)null);
                 });
 
             modelBuilder.Entity("Agro.Data.Models.Insurance", b =>
@@ -195,7 +195,7 @@ namespace Agro.Migrations
 
                     b.HasIndex("PersonalPK_Personal");
 
-                    b.ToTable("Insurances");
+                    b.ToTable("Insurances", (string)null);
                 });
 
             modelBuilder.Entity("Agro.Data.Models.Personal", b =>
@@ -254,7 +254,7 @@ namespace Agro.Migrations
 
                     b.HasIndex("FK_UserPK_User");
 
-                    b.ToTable("Personals");
+                    b.ToTable("Personals", (string)null);
                 });
 
             modelBuilder.Entity("Agro.Data.Models.PersonalAddress", b =>
@@ -269,7 +269,7 @@ namespace Agro.Migrations
 
                     b.HasIndex("FK_Address");
 
-                    b.ToTable("PersonalAddresses");
+                    b.ToTable("PersonalAddresses", (string)null);
                 });
 
             modelBuilder.Entity("Agro.Data.Models.User", b =>
@@ -308,7 +308,7 @@ namespace Agro.Migrations
                     b.HasIndex("UserName")
                         .IsUnique();
 
-                    b.ToTable("Users");
+                    b.ToTable("Users", (string)null);
                 });
 
             modelBuilder.Entity("Agro.Data.Models.Farm", b =>

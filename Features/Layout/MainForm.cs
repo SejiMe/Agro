@@ -20,7 +20,7 @@ namespace Agro.Features.Layout
         private readonly IPersonalRepository _people;
         private readonly IServiceProvider _serviceProvider;
         private readonly AuthForm _authform;
-        private readonly AuthenticationDTO authenticationDTO;
+        private AuthenticationDTO authenticationDTO;
 
         enum Roles
         {
@@ -35,7 +35,7 @@ namespace Agro.Features.Layout
             _people = people;
             _serviceProvider = serviceProvider;
             InitializeComponent();
-            authenticationDTO = _authentication.GetAuthenticationDetails();
+           
 
             var GeneralNavController = _serviceProvider.GetRequiredService<GeneralNavigation>();
 
@@ -75,6 +75,8 @@ namespace Agro.Features.Layout
             {
                 NavigationPanel.Controls[0].BringToFront();
             }
+
+            authenticationDTO = _authentication.GetAuthenticationDetails();
 
 
             #region Controller Panel MAIN

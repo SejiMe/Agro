@@ -22,6 +22,7 @@ namespace Agro.Features.Authentication
             this.role = role;
             this.email = email;
             TimeLogged = timeLogged;
+            PK_Personal = personID;
         }
     }
 }
