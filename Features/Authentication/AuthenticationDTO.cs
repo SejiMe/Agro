@@ -13,8 +13,9 @@ namespace Agro.Features.Authentication
         public string? role { get; set; }
         public string? email { get; set; }
         public DateTime TimeLogged { get; set; }
+        public int PK_Personal { get; set; }
 
-        public AuthenticationDTO(Guid? userID, string username, string role, string email, DateTime timeLogged)
+        public AuthenticationDTO(Guid? userID, string username, string role, string email, DateTime timeLogged, int personID)
         {
             PK_User = userID;
             this.username = username;

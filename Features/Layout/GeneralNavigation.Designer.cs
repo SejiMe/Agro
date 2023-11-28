@@ -31,7 +31,7 @@
             tableLayoutPanel1 = new TableLayoutPanel();
             button8 = new Button();
             button5 = new Button();
-            button2 = new Button();
+            CropInsuranceBtn = new Button();
             ApplyMembershipBtn = new Button();
             ProfileBtn = new Button();
             tableLayoutPanel2 = new TableLayoutPanel();
@@ -51,7 +51,7 @@
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel1.Controls.Add(button8, 0, 4);
             tableLayoutPanel1.Controls.Add(button5, 0, 3);
-            tableLayoutPanel1.Controls.Add(button2, 0, 2);
+            tableLayoutPanel1.Controls.Add(CropInsuranceBtn, 0, 2);
             tableLayoutPanel1.Controls.Add(ApplyMembershipBtn, 0, 1);
             tableLayoutPanel1.Controls.Add(ProfileBtn, 0, 0);
             tableLayoutPanel1.Dock = DockStyle.Fill;
@@ -92,17 +92,18 @@
             button5.Text = "Calendar Activities";
             button5.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // CropInsuranceBtn
             // 
-            button2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            button2.BackColor = Color.LimeGreen;
-            button2.Font = new Font("Segoe UI", 12F);
-            button2.Location = new Point(3, 143);
-            button2.Name = "button2";
-            button2.Size = new Size(175, 64);
-            button2.TabIndex = 1;
-            button2.Text = "Apply Crop Insurance";
-            button2.UseVisualStyleBackColor = false;
+            CropInsuranceBtn.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            CropInsuranceBtn.BackColor = Color.LimeGreen;
+            CropInsuranceBtn.Font = new Font("Segoe UI", 12F);
+            CropInsuranceBtn.Location = new Point(3, 143);
+            CropInsuranceBtn.Name = "CropInsuranceBtn";
+            CropInsuranceBtn.Size = new Size(175, 64);
+            CropInsuranceBtn.TabIndex = 1;
+            CropInsuranceBtn.Text = "Apply Crop Insurance";
+            CropInsuranceBtn.UseVisualStyleBackColor = false;
+            CropInsuranceBtn.Click += CropInsuranceBtn_Click;
             // 
             // ApplyMembershipBtn
             // 
@@ -115,6 +116,7 @@
             ApplyMembershipBtn.TabIndex = 0;
             ApplyMembershipBtn.Text = "Apply Membership";
             ApplyMembershipBtn.UseVisualStyleBackColor = false;
+            ApplyMembershipBtn.Click += ApplyMembershipBtn_Click;
             // 
             // ProfileBtn
             // 
@@ -223,7 +225,7 @@
         private TableLayoutPanel tableLayoutPanel1;
         private Button ApplyMembershipBtn;
         private Button button5;
-        private Button button2;
+        private Button CropInsuranceBtn;
         private Button button8;
         private TableLayoutPanel tableLayoutPanel2;
         private Button button3;

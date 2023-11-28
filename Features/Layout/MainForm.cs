@@ -20,6 +20,7 @@ namespace Agro.Features.Layout
         private readonly IPersonalRepository _people;
         private readonly IServiceProvider _serviceProvider;
         private readonly AuthForm _authform;
+        private readonly AuthenticationDTO authenticationDTO;
 
         enum Roles
         {
@@ -34,14 +35,15 @@ namespace Agro.Features.Layout
             _people = people;
             _serviceProvider = serviceProvider;
             InitializeComponent();
+            authenticationDTO = _authentication.GetAuthenticationDetails();
 
             var GeneralNavController = _serviceProvider.GetRequiredService<GeneralNavigation>();
 
             NavigationalButtonsPanel.Controls.Add(GeneralNavController);
+            Controls["HeaderPanel"].Controls["TitleLabel"].Text = "My Profile";
 
-            var user = _authentication.GetAuthenticationDetails();
 
-            if (user == null)
+            if (authenticationDTO == null)
             {
                 authform.Show();
                 this.Hide();
@@ -74,10 +76,17 @@ namespace Agro.Features.Layout
                 NavigationPanel.Controls[0].BringToFront();
             }
 
-            var addressController = _serviceProvider.GetRequiredService<ProfileController>();
-            addressController.Dock = DockStyle.Fill;
+
             #region Controller Panel MAIN
-            ControllerPanel.Controls.Add(addressController);
+
+            var insuranceProfileController = _serviceProvider.GetRequiredService<InsuranceProfileController>();
+            var personalProfileController = ActivatorUtilities.CreateInstance<ProfileController>(_serviceProvider, authenticationDTO.PK_Personal);
+            
+            insuranceProfileController.Dock = DockStyle.Fill;
+            personalProfileController.Dock = DockStyle.Fill;
+
+            ControllerPanel.Controls.Add(personalProfileController);
+            ControllerPanel.Controls.Add(insuranceProfileController);
             #endregion
         }
     }

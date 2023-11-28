@@ -17,9 +17,9 @@ public class Farm
 
     [Required]
     public int AreaSQM { get; set; }
-    
-    public string LandCategorySoilType { get; set; }
-    public string TenurialStatus { get; set; }
+
+    public string? LandCategorySoilType { get; set; } = string.Empty;
+    public string? TenurialStatus { get; set; } = string.Empty;
 
 
     [MaxLength(250), AllowNull]

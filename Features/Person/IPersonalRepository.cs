@@ -13,6 +13,8 @@ namespace Agro.Features.Person
         
         Personal GetPerson(int id);
 
+        PersonalAddress GetPersonAddress(int id);
+
         Personal GetPersonByUser(Guid PK_User);
 
         bool RegisterPerson(Personal personal);

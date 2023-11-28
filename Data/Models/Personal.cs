@@ -26,11 +26,17 @@ public class Personal
     public string? Suffix { get; set; }
     public char? Gender { get; set; }
 
+    [AllowNull]
+    public string? SpouseName { get; set; } = string.Empty;
+
     [MaxLength(30)]
     public string? civil_status { get; set; } = "Single";
 
     [Required]
-    public bool IsApprove { get; set; } = false;
+    public bool IsApproved { get; set; } = false;
+
+    [AllowNull]
+    public string? Association { get; set; } = string.Empty;
 
     [Column(TypeName = "varbinary(max)")]
     public byte[]? Image { get; set; }

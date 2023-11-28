@@ -1,5 +1,6 @@
 ﻿using Agro.Data;
 using Agro.Data.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,16 @@ namespace Agro.Features.Person
         public PersonalRepository(ApplicationDBContext context)
         {
             _context = context;
+        }
+
+        public PersonalAddress GetPersonAddress(int id)
+        {
+            var res = _context.PersonalAddresses
+                .Include(p => p.Personal)
+                .Include(p => p.Address)
+                .Where(p => p.FK_Personal == id)
+                .First();
+            return res;
         }
 
         public IQueryable<Personal> GetAll()

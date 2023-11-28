@@ -12,12 +12,16 @@ namespace Agro.Features.Person
 {
     public partial class ProfileController : UserControl
     {
-        public ProfileController()
+        private readonly IPersonalRepository _personalRepository;
+        private readonly int _profileId;
+        public ProfileController(IPersonalRepository personalRepository, int id)
         {
+            _personalRepository = personalRepository;
+            _profileId = id;
             InitializeComponent();
         }
 
-        private void toolTip1_Popup(object sender, PopupEventArgs e)
+        private void groupBox2_Enter(object sender, EventArgs e)
         {
 
         }

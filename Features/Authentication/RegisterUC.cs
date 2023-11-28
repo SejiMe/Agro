@@ -99,12 +99,14 @@ public partial class RegisterUC : UserControl
         string salt = BCrypt.GenerateSalt(10);
         string password = BCrypt.HashPassword(PasswordText.Text, salt);
                 
-        var result = _personalRepository.RegisterPerson(new Personal() { FirstName = FirstNameText.Text, LastName = LastNameText.Text, 
+        bool result = _personalRepository.RegisterPerson(new Personal() { FirstName = FirstNameText.Text, LastName = LastNameText.Text, 
             FK_User = new User() { Email = EmailText.Text, Password = password, Salt = salt, Role = RoleLabel.Text, UserName = UsernameText.Text } });
 
         if (result)
         {
-            MessageBox.Show("Successfully Created a new User");
+           var dialogRes =  MessageBox.Show("Successfully Created a new User", "Successful", MessageBoxButtons.OK);
+           if(dialogRes == DialogResult.OK)
+               Parent.Controls["AuthUC"].BringToFront();
         }
     }
 }

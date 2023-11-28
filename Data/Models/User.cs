@@ -33,4 +33,5 @@ public class User
 
     [MaxLength(25)]
     public string Role { get; set; }
+
 }
