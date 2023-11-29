@@ -25,7 +25,8 @@ namespace Agro.Features.Layout
 
         private void ApplyMembershipBtn_Click(object sender, EventArgs e)
         {
-
+            ParentForm.Controls["HeaderPanel"].Controls["TitleLabel"].Text = "Membership";
+            ParentForm.Controls["ControllerPanel"].Controls["ProfileController"].BringToFront();
         }
 
         private void CropInsuranceBtn_Click(object sender, EventArgs e)

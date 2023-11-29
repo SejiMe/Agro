@@ -18,19 +18,14 @@ public class FarmRepository : IFarmRepository
         _context = context;
     }
 
-    public IQueryable GetFarmCommodity(int id)
+
+    public IQueryable<FarmCommodity> GetFarms(int id)
     {
         var results = _context.FarmCommodities
             .Include(fc => fc.Farm)
+                .ThenInclude(farm => farm.FK_Personal)
             .Include(fc => fc.Commodity)
             .Where(fc => fc.Farm.FK_Personal.PK_Personal == id);
-
-        return results;
-    }
-
-    public ICollection<Farm> GetFarms(int id)
-    {
-        var results = _context.Farms.Where(farm => farm.FK_Personal.PK_Personal == id).ToList();
 
         return results;
     }

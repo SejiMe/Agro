@@ -4,7 +4,7 @@ namespace Agro.Features.Farms;
 
 public interface IFarmRepository
 {
-    ICollection<Farm> GetFarms(int id);
+    
 
-    IQueryable GetFarmCommodity(int id);
+    IQueryable<FarmCommodity> GetFarms(int id);
 }
