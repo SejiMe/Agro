@@ -4,6 +4,7 @@ using Agro.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Agro.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    partial class ApplicationDBContextModelSnapshot : ModelSnapshot
+    [Migration("20231129125246_ChangeNormalizationForFarmAndCommodity")]
+    partial class ChangeNormalizationForFarmAndCommodity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -31,14 +34,17 @@ namespace Agro.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PK_Address"));
 
                     b.Property<string>("Barangay")
+                        .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("HouseNumber")
+                        .IsRequired()
                         .HasMaxLength(25)
                         .HasColumnType("nvarchar(25)");
 
                     b.Property<string>("LotNumber")
+                        .IsRequired()
                         .HasMaxLength(25)
                         .HasColumnType("nvarchar(25)");
 
@@ -58,6 +64,7 @@ namespace Agro.Migrations
                         .HasColumnType("nvarchar(60)");
 
                     b.Property<string>("Street")
+                        .IsRequired()
                         .HasMaxLength(70)
                         .HasColumnType("nvarchar(70)");
 
@@ -79,10 +86,12 @@ namespace Agro.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("CommodityName")
+                        .IsRequired()
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
 
                     b.Property<string>("EastAdjacentOwner")
+                        .IsRequired()
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
 
@@ -93,6 +102,7 @@ namespace Agro.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("NorthAdjacentOwner")
+                        .IsRequired()
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
 
@@ -100,6 +110,7 @@ namespace Agro.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("SouthAdjacentOwner")
+                        .IsRequired()
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
 
@@ -107,6 +118,7 @@ namespace Agro.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("WastAdjacentOwner")
+                        .IsRequired()
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
 

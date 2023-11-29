@@ -16,15 +16,15 @@ public class Address
     public int PK_Address { get; set; }
 
     [MaxLength(25), AllowNull]
-    public string LotNumber { get; set; }
+    public string? LotNumber { get; set; }
 
     [MaxLength(25), AllowNull]
-    public string HouseNumber { get; set; }
+    public string? HouseNumber { get; set; }
     [MaxLength(70), AllowNull]
-    public string Street { get; set; }
+    public string? Street { get; set; }
      
     [MaxLength(50)]
-    public string Barangay { get; set; }
+    public string? Barangay { get; set; }
 
     [MaxLength(50), Required]
     public string Municipality { get; set; } = "BUNAWAN";

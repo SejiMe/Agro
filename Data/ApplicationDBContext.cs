@@ -27,28 +27,28 @@ public class ApplicationDBContext : DbContext
     public DbSet<PersonalAddress> PersonalAddresses { get; set; }
 
     public DbSet<Farm> Farms { get; set; } 
-    public DbSet<Commodity> Commodities { get; set; }
+    //public DbSet<Commodity> Commodities { get; set; }
     
-    public DbSet<FarmCommodity> FarmCommodities { get; set; }
+    //public DbSet<FarmCommodity> FarmCommodities { get; set; }
 
     public DbSet<Insurance> Insurances { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         #region Farm Commodity
-        modelBuilder.Entity<FarmCommodity>()
-            .HasKey(join => new { join.FK_Farm, join.FK_Commodity });
+        //modelBuilder.Entity<FarmCommodity>()
+        //    .HasKey(join => new { join.FK_Farm, join.FK_Commodity });
 
-        modelBuilder.Entity<FarmCommodity>()
-            .HasOne(join => join.Farm)
-            .WithMany(farm => farm.FarmCommodities)
-            .HasForeignKey(join => join.FK_Farm);
+        //modelBuilder.Entity<FarmCommodity>()
+        //    .HasOne(join => join.Farm)
+        //    .WithMany(farm => farm.FarmCommodities)
+        //    .HasForeignKey(join => join.FK_Farm);
         
-        modelBuilder.Entity<FarmCommodity>()
-            .HasOne(join => join.Commodity)
-            .WithMany(commodity => commodity.FarmCommodities)
+        //modelBuilder.Entity<FarmCommodity>()
+        //    .HasOne(join => join.Commodity)
+        //    .WithMany(commodity => commodity.FarmCommodities)
+        //    .HasForeignKey(join => join.FK_Commodity);
         #endregion
-            .HasForeignKey(join => join.FK_Commodity);
         
         #region Personal Address
         modelBuilder.Entity<PersonalAddress>()
@@ -71,7 +71,7 @@ public class ApplicationDBContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseSqlServer(ConfigurationManager.ConnectionStrings["MSITConnection"].ConnectionString);
+        optionsBuilder.UseSqlServer(ConfigurationManager.ConnectionStrings["AGROConnection"].ConnectionString);
         base.OnConfiguring(optionsBuilder);
     }
 }

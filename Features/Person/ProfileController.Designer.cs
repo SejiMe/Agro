@@ -128,7 +128,7 @@
             // 
             RiceFarmAddressBtn.BackgroundImage = Properties.Resources.icons8_edit_32;
             RiceFarmAddressBtn.BackgroundImageLayout = ImageLayout.Zoom;
-            RiceFarmAddressBtn.Location = new Point(421, 22);
+            RiceFarmAddressBtn.Location = new Point(432, 22);
             RiceFarmAddressBtn.Name = "RiceFarmAddressBtn";
             RiceFarmAddressBtn.Size = new Size(30, 23);
             RiceFarmAddressBtn.TabIndex = 12;
@@ -322,7 +322,7 @@
             // 
             HVCDPAddressBtn.BackgroundImage = Properties.Resources.icons8_edit_32;
             HVCDPAddressBtn.BackgroundImageLayout = ImageLayout.Zoom;
-            HVCDPAddressBtn.Location = new Point(421, 22);
+            HVCDPAddressBtn.Location = new Point(432, 22);
             HVCDPAddressBtn.Name = "HVCDPAddressBtn";
             HVCDPAddressBtn.Size = new Size(30, 23);
             HVCDPAddressBtn.TabIndex = 17;
@@ -377,7 +377,7 @@
             // 
             CornFarmAddressBtn.BackgroundImage = Properties.Resources.icons8_edit_32;
             CornFarmAddressBtn.BackgroundImageLayout = ImageLayout.Zoom;
-            CornFarmAddressBtn.Location = new Point(421, 22);
+            CornFarmAddressBtn.Location = new Point(432, 22);
             CornFarmAddressBtn.Name = "CornFarmAddressBtn";
             CornFarmAddressBtn.Size = new Size(30, 23);
             CornFarmAddressBtn.TabIndex = 12;

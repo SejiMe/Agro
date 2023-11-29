@@ -4,7 +4,11 @@ namespace Agro.Features.Farms;
 
 public interface IFarmRepository
 {
-    
 
-    IQueryable<FarmCommodity> GetFarms(int id);
+    Task<bool> CreateInitialFarms(Personal owner);
+
+    Task<bool> HasFarm(int Pk_person);
+
+    Task<IEnumerable<Farm>> GetAllFarm(int owner);
+
 }

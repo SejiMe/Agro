@@ -23,13 +23,14 @@ public class Farm
 
 
     [MaxLength(250), AllowNull]
-    public string NorthAdjacentOwner { get; set; }
+    public string? NorthAdjacentOwner { get; set; }
     [MaxLength(250), AllowNull]
-    public string EastAdjacentOwner { get; set; }
-    [MaxLength(250), AllowNull]
-    public string WastAdjacentOwner { get; set; }
-    [MaxLength(250), AllowNull]
-    public string SouthAdjacentOwner { get; set; }
+    public string? EastAdjacentOwner { get; set; }
+    [MaxLength(250)]
+    public string? WastAdjacentOwner { get; set; }
+    
+    [MaxLength(250)]
+    public string? SouthAdjacentOwner { get; set; }
 
     // Who answered the application of insurance
     
@@ -42,6 +43,10 @@ public class Farm
     [ForeignKey(nameof(Personal))]
     public Personal? FK_Personal { get; set; }
 
+    [MaxLength(250), AllowNull]
+    public string? CommodityName { get; set; }
+    public bool isHVCDP {  get; set; } 
+
     public ICollection<Insurance> Insurances { get; set; }
-    public ICollection<FarmCommodity> FarmCommodities { get; set; }
+    //public ICollection<FarmCommodity> FK_Commodities { get; set; }
 }

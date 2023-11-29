@@ -19,14 +19,46 @@ public class FarmRepository : IFarmRepository
     }
 
 
-    public IQueryable<FarmCommodity> GetFarms(int id)
+    public Task<bool> CreateInitialFarms(Personal owner)
     {
-        var results = _context.FarmCommodities
-            .Include(fc => fc.Farm)
-                .ThenInclude(farm => farm.FK_Personal)
-            .Include(fc => fc.Commodity)
-            .Where(fc => fc.Farm.FK_Personal.PK_Personal == id);
+        var task = Task.Run(async () => {
 
-        return results;
+            _context.Farms.Add(new Farm { CommodityName = "Rice", isHVCDP = false, FK_Personal = owner, FK_Address = new Address() });
+            _context.Farms.Add(new Farm { CommodityName = "Corn", isHVCDP = false, FK_Personal = owner, FK_Address = new Address() });
+            _context.Farms.Add(new Farm { CommodityName = "", isHVCDP = true, FK_Personal = owner, FK_Address = new Address() });
+
+            var address = _context.Addresses.Add(new Address());
+            _context.PersonalAddresses.Add(new PersonalAddress() { FK_Address = address.Entity.PK_Address ,Address = address.Entity, Personal = owner,  FK_Personal = owner.PK_Personal});
+            return await _context.SaveChangesAsync();
+        });
+
+        var res = task.Result > 0;
+        return Task.FromResult(res);
+    }
+
+    public Task<IEnumerable<Farm>> GetAllFarm(int owner)
+    {
+        var task = Task.Run(() =>
+        {
+            return _context.Farms
+            .Include(farm => farm.FK_Address)
+            .Include(farm => farm.FK_Personal)
+            .Include(farm => farm.FK_User)
+            .Where(farm => farm.FK_Personal.PK_Personal == owner)
+            .OrderBy(farm => farm.CommodityName)
+            .AsEnumerable();
+        });
+        
+        return task;
+    }
+
+    public Task<bool> HasFarm(int Pk_person)
+    {
+        var task = Task.Run(async () =>
+        {
+            return _context.Farms.Any(f => f.FK_Personal.PK_Personal == Pk_person);
+        });
+        
+        return task;
     }
 }
