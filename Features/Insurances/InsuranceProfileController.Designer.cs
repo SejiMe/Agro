@@ -56,8 +56,13 @@
             CurrentAddressEditBtn = new Button();
             CurrentAddressTooltip = new ToolTip(components);
             groupBox3 = new GroupBox();
+            NorthAdjacentText = new TextBox();
+            SouthAdjacentText = new TextBox();
+            EastAdjacentText = new TextBox();
+            WestAdjacentText = new TextBox();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
+            groupBox3.SuspendLayout();
             SuspendLayout();
             // 
             // groupBox1
@@ -238,7 +243,7 @@
             // 
             // textBox11
             // 
-            textBox11.Location = new Point(382, 52);
+            textBox11.Location = new Point(467, 62);
             textBox11.Name = "textBox11";
             textBox11.PlaceholderText = "Tenurial";
             textBox11.Size = new Size(278, 23);
@@ -246,7 +251,7 @@
             // 
             // textBox10
             // 
-            textBox10.Location = new Point(39, 51);
+            textBox10.Location = new Point(124, 61);
             textBox10.Name = "textBox10";
             textBox10.PlaceholderText = "Land Category / Soil Type";
             textBox10.Size = new Size(324, 23);
@@ -254,7 +259,7 @@
             // 
             // textBox9
             // 
-            textBox9.Location = new Point(382, 23);
+            textBox9.Location = new Point(467, 33);
             textBox9.Name = "textBox9";
             textBox9.PlaceholderText = "Area in sqm";
             textBox9.Size = new Size(278, 23);
@@ -264,7 +269,7 @@
             // 
             FarmAddressBtn.BackgroundImage = Properties.Resources.icons8_edit_32;
             FarmAddressBtn.BackgroundImageLayout = ImageLayout.Zoom;
-            FarmAddressBtn.Location = new Point(6, 22);
+            FarmAddressBtn.Location = new Point(88, 33);
             FarmAddressBtn.Name = "FarmAddressBtn";
             FarmAddressBtn.Size = new Size(30, 23);
             FarmAddressBtn.TabIndex = 12;
@@ -272,7 +277,7 @@
             // 
             // textBox8
             // 
-            textBox8.Location = new Point(39, 22);
+            textBox8.Location = new Point(124, 32);
             textBox8.Name = "textBox8";
             textBox8.PlaceholderText = "Farm Location";
             textBox8.Size = new Size(324, 23);
@@ -318,12 +323,48 @@
             // groupBox3
             // 
             groupBox3.Anchor = AnchorStyles.Top;
-            groupBox3.Location = new Point(32, 356);
+            groupBox3.Controls.Add(WestAdjacentText);
+            groupBox3.Controls.Add(EastAdjacentText);
+            groupBox3.Controls.Add(SouthAdjacentText);
+            groupBox3.Controls.Add(NorthAdjacentText);
+            groupBox3.Location = new Point(32, 340);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(849, 111);
+            groupBox3.Size = new Size(849, 138);
             groupBox3.TabIndex = 12;
             groupBox3.TabStop = false;
             groupBox3.Text = "ADJACENT LOT OWNERS";
+            // 
+            // NorthAdjacentText
+            // 
+            NorthAdjacentText.Location = new Point(124, 25);
+            NorthAdjacentText.Name = "NorthAdjacentText";
+            NorthAdjacentText.PlaceholderText = "North";
+            NorthAdjacentText.Size = new Size(637, 23);
+            NorthAdjacentText.TabIndex = 15;
+            // 
+            // SouthAdjacentText
+            // 
+            SouthAdjacentText.Location = new Point(124, 54);
+            SouthAdjacentText.Name = "SouthAdjacentText";
+            SouthAdjacentText.PlaceholderText = "South";
+            SouthAdjacentText.Size = new Size(637, 23);
+            SouthAdjacentText.TabIndex = 16;
+            // 
+            // EastAdjacentText
+            // 
+            EastAdjacentText.Location = new Point(124, 83);
+            EastAdjacentText.Name = "EastAdjacentText";
+            EastAdjacentText.PlaceholderText = "East";
+            EastAdjacentText.Size = new Size(637, 23);
+            EastAdjacentText.TabIndex = 17;
+            // 
+            // WestAdjacentText
+            // 
+            WestAdjacentText.Location = new Point(124, 112);
+            WestAdjacentText.Name = "WestAdjacentText";
+            WestAdjacentText.PlaceholderText = "West";
+            WestAdjacentText.Size = new Size(637, 23);
+            WestAdjacentText.TabIndex = 18;
             // 
             // InsuranceProfileController
             // 
@@ -349,6 +390,8 @@
             groupBox1.PerformLayout();
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
+            groupBox3.ResumeLayout(false);
+            groupBox3.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -382,5 +425,9 @@
         private TextBox textBox11;
         private TextBox textBox10;
         private GroupBox groupBox3;
+        private TextBox WestAdjacentText;
+        private TextBox EastAdjacentText;
+        private TextBox SouthAdjacentText;
+        private TextBox NorthAdjacentText;
     }
 }

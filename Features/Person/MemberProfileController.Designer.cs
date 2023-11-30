@@ -1,6 +1,6 @@
 ﻿namespace Agro.Features.Person
 {
-    partial class ProfileController
+    partial class MemberProfileController
     {
         /// <summary> 
         /// Required designer variable.
@@ -30,7 +30,7 @@
         {
             CurrentAddressEditBtn = new Button();
             label8 = new Label();
-            textBox7 = new TextBox();
+            CurrentAddressText = new TextBox();
             groupBox2 = new GroupBox();
             RiceAreaText = new TextBox();
             RiceFarmAddressBtn = new Button();
@@ -75,7 +75,7 @@
             CurrentAddressEditBtn.Anchor = AnchorStyles.Top;
             CurrentAddressEditBtn.BackgroundImage = Properties.Resources.icons8_edit_32;
             CurrentAddressEditBtn.BackgroundImageLayout = ImageLayout.Zoom;
-            CurrentAddressEditBtn.Location = new Point(72, 218);
+            CurrentAddressEditBtn.Location = new Point(72, 250);
             CurrentAddressEditBtn.Name = "CurrentAddressEditBtn";
             CurrentAddressEditBtn.Size = new Size(30, 23);
             CurrentAddressEditBtn.TabIndex = 24;
@@ -86,21 +86,21 @@
             // 
             label8.Anchor = AnchorStyles.Top;
             label8.AutoSize = true;
-            label8.Location = new Point(72, 199);
+            label8.Location = new Point(72, 231);
             label8.Name = "label8";
             label8.Size = new Size(49, 15);
             label8.TabIndex = 23;
             label8.Text = "Address";
             // 
-            // textBox7
+            // CurrentAddressText
             // 
-            textBox7.Anchor = AnchorStyles.Top;
-            textBox7.Location = new Point(105, 218);
-            textBox7.Name = "textBox7";
-            textBox7.PlaceholderText = "Current Address";
-            textBox7.ReadOnly = true;
-            textBox7.Size = new Size(810, 23);
-            textBox7.TabIndex = 13;
+            CurrentAddressText.Anchor = AnchorStyles.Top;
+            CurrentAddressText.Location = new Point(105, 250);
+            CurrentAddressText.Name = "CurrentAddressText";
+            CurrentAddressText.PlaceholderText = "Current Address";
+            CurrentAddressText.ReadOnly = true;
+            CurrentAddressText.Size = new Size(810, 23);
+            CurrentAddressText.TabIndex = 13;
             // 
             // groupBox2
             // 
@@ -108,7 +108,7 @@
             groupBox2.Controls.Add(RiceAreaText);
             groupBox2.Controls.Add(RiceFarmAddressBtn);
             groupBox2.Controls.Add(RiceAddressText);
-            groupBox2.Location = new Point(66, 365);
+            groupBox2.Location = new Point(66, 397);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(849, 60);
             groupBox2.TabIndex = 22;
@@ -133,6 +133,7 @@
             RiceFarmAddressBtn.Size = new Size(30, 23);
             RiceFarmAddressBtn.TabIndex = 12;
             RiceFarmAddressBtn.UseVisualStyleBackColor = true;
+            RiceFarmAddressBtn.Click += RiceFarmAddressBtn_Click;
             // 
             // RiceAddressText
             // 
@@ -146,7 +147,7 @@
             // 
             label7.Anchor = AnchorStyles.Top;
             label7.AutoSize = true;
-            label7.Location = new Point(689, 148);
+            label7.Location = new Point(689, 180);
             label7.Name = "label7";
             label7.Size = new Size(45, 15);
             label7.TabIndex = 21;
@@ -158,7 +159,7 @@
             GenderCB.DropDownWidth = 120;
             GenderCB.FormattingEnabled = true;
             GenderCB.Items.AddRange(new object[] { "Male", "Female" });
-            GenderCB.Location = new Point(689, 166);
+            GenderCB.Location = new Point(689, 198);
             GenderCB.Name = "GenderCB";
             GenderCB.Size = new Size(226, 23);
             GenderCB.TabIndex = 20;
@@ -167,7 +168,7 @@
             // 
             DateTimePicker.Anchor = AnchorStyles.Top;
             DateTimePicker.Format = DateTimePickerFormat.Short;
-            DateTimePicker.Location = new Point(373, 166);
+            DateTimePicker.Location = new Point(373, 198);
             DateTimePicker.Name = "DateTimePicker";
             DateTimePicker.Size = new Size(310, 23);
             DateTimePicker.TabIndex = 19;
@@ -177,7 +178,7 @@
             // 
             label6.Anchor = AnchorStyles.Top;
             label6.AutoSize = true;
-            label6.Location = new Point(420, 148);
+            label6.Location = new Point(420, 180);
             label6.Name = "label6";
             label6.Size = new Size(73, 15);
             label6.TabIndex = 18;
@@ -186,7 +187,7 @@
             // textBox6
             // 
             textBox6.Anchor = AnchorStyles.Top;
-            textBox6.Location = new Point(72, 166);
+            textBox6.Location = new Point(72, 198);
             textBox6.Name = "textBox6";
             textBox6.ReadOnly = true;
             textBox6.Size = new Size(39, 23);
@@ -196,7 +197,7 @@
             // ContactNumberText
             // 
             ContactNumberText.Anchor = AnchorStyles.Top;
-            ContactNumberText.Location = new Point(117, 166);
+            ContactNumberText.Location = new Point(117, 198);
             ContactNumberText.Name = "ContactNumberText";
             ContactNumberText.PlaceholderText = "09123456789";
             ContactNumberText.Size = new Size(250, 23);
@@ -206,7 +207,7 @@
             // 
             label5.Anchor = AnchorStyles.Top;
             label5.AutoSize = true;
-            label5.Location = new Point(72, 148);
+            label5.Location = new Point(72, 180);
             label5.Name = "label5";
             label5.Size = new Size(96, 15);
             label5.TabIndex = 15;
@@ -225,7 +226,7 @@
             groupBox1.Controls.Add(FirstNameText);
             groupBox1.FlatStyle = FlatStyle.Flat;
             groupBox1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            groupBox1.Location = new Point(72, 29);
+            groupBox1.Location = new Point(72, 61);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(843, 100);
             groupBox1.TabIndex = 14;
@@ -311,7 +312,7 @@
             groupBox3.Controls.Add(HVCDPAddressText);
             groupBox3.Controls.Add(HVCDPAreaText);
             groupBox3.Controls.Add(CommodityText);
-            groupBox3.Location = new Point(66, 515);
+            groupBox3.Location = new Point(66, 547);
             groupBox3.Name = "groupBox3";
             groupBox3.Size = new Size(849, 60);
             groupBox3.TabIndex = 25;
@@ -327,6 +328,7 @@
             HVCDPAddressBtn.Size = new Size(30, 23);
             HVCDPAddressBtn.TabIndex = 17;
             HVCDPAddressBtn.UseVisualStyleBackColor = true;
+            HVCDPAddressBtn.Click += HVCDPAddressBtn_Click;
             // 
             // HVCDPAddressText
             // 
@@ -358,7 +360,7 @@
             groupBox4.Controls.Add(CornAreaText);
             groupBox4.Controls.Add(CornFarmAddressBtn);
             groupBox4.Controls.Add(CornAddressText);
-            groupBox4.Location = new Point(65, 442);
+            groupBox4.Location = new Point(65, 474);
             groupBox4.Name = "groupBox4";
             groupBox4.Size = new Size(849, 60);
             groupBox4.TabIndex = 26;
@@ -382,6 +384,7 @@
             CornFarmAddressBtn.Size = new Size(30, 23);
             CornFarmAddressBtn.TabIndex = 12;
             CornFarmAddressBtn.UseVisualStyleBackColor = true;
+            CornFarmAddressBtn.Click += CornFarmAddressBtn_Click;
             // 
             // CornAddressText
             // 
@@ -394,7 +397,7 @@
             // SpouseText
             // 
             SpouseText.Anchor = AnchorStyles.Top;
-            SpouseText.Location = new Point(73, 270);
+            SpouseText.Location = new Point(73, 302);
             SpouseText.Name = "SpouseText";
             SpouseText.PlaceholderText = "Spouse's Name";
             SpouseText.Size = new Size(842, 23);
@@ -404,7 +407,7 @@
             // 
             label9.Anchor = AnchorStyles.Top;
             label9.AutoSize = true;
-            label9.Location = new Point(72, 252);
+            label9.Location = new Point(72, 284);
             label9.Name = "label9";
             label9.Size = new Size(45, 15);
             label9.TabIndex = 28;
@@ -414,7 +417,7 @@
             // 
             label10.Anchor = AnchorStyles.Top;
             label10.AutoSize = true;
-            label10.Location = new Point(71, 303);
+            label10.Location = new Point(71, 335);
             label10.Name = "label10";
             label10.Size = new Size(68, 15);
             label10.TabIndex = 30;
@@ -423,13 +426,13 @@
             // AssociationText
             // 
             AssociationText.Anchor = AnchorStyles.Top;
-            AssociationText.Location = new Point(72, 321);
+            AssociationText.Location = new Point(72, 353);
             AssociationText.Name = "AssociationText";
             AssociationText.PlaceholderText = "Association";
             AssociationText.Size = new Size(842, 23);
             AssociationText.TabIndex = 29;
             // 
-            // ProfileController
+            // MemberProfileController
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -441,7 +444,7 @@
             Controls.Add(groupBox3);
             Controls.Add(CurrentAddressEditBtn);
             Controls.Add(label8);
-            Controls.Add(textBox7);
+            Controls.Add(CurrentAddressText);
             Controls.Add(groupBox2);
             Controls.Add(label7);
             Controls.Add(GenderCB);
@@ -451,7 +454,7 @@
             Controls.Add(ContactNumberText);
             Controls.Add(label5);
             Controls.Add(groupBox1);
-            Name = "ProfileController";
+            Name = "MemberProfileController";
             Size = new Size(980, 608);
             Load += ProfileController_Load;
             groupBox2.ResumeLayout(false);
@@ -469,7 +472,7 @@
         #endregion
         private Button CurrentAddressEditBtn;
         private Label label8;
-        private TextBox textBox7;
+        private TextBox CurrentAddressText;
         private GroupBox groupBox2;
         private TextBox RiceAreaText;
         private Button RiceFarmAddressBtn;

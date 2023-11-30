@@ -10,4 +10,9 @@ namespace Agro.Features.Addresses;
 public interface IAddressRepository
 {
     bool AddAddress(Address address);
+
+    bool UpdateAddress(Address address);
+
+    void Save();
+
 }

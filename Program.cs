@@ -2,6 +2,7 @@ using Agro.Data;
 using Agro.Features.Addresses;
 using Agro.Features.Authentication;
 using Agro.Features.Farms;
+using Agro.Features.Insurances;
 using Agro.Features.Layout;
 using Agro.Features.Person;
 using Microsoft.EntityFrameworkCore;
@@ -44,15 +45,17 @@ namespace Agro
             services.AddSingleton<IAuthenticationRepository, AuthenticationRepository>();
             services.AddScoped<IFarmRepository, FarmRepository>();
             services.AddTransient<IAddressRepository, AddressRepository>();
+            services.AddTransient<IInsuranceRepository, InsuranceRepository>();
 
             // Controllers 
             services.AddSingleton<RegisterUC>();
             services.AddSingleton<AuthUC>();
             services.AddSingleton<GeneralNavigation>();
             services.AddScoped<InsuranceProfileController>();
-            services.AddScoped<ProfileController>();
+            services.AddScoped<MemberProfileController>();
 
             // Forms
+            services.AddTransient<AddressForm>();
             services.AddSingleton<AuthForm>();
             services.AddSingleton<MainForm>();            
             // ...

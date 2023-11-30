@@ -82,7 +82,7 @@ namespace Agro.Features.Layout
             #region Controller Panel MAIN
 
             var insuranceProfileController = _serviceProvider.GetRequiredService<InsuranceProfileController>();
-            var personalProfileController = ActivatorUtilities.CreateInstance<ProfileController>(_serviceProvider, authenticationDTO.PK_Personal);
+            var personalProfileController = ActivatorUtilities.CreateInstance<MemberProfileController>(_serviceProvider, authenticationDTO.PK_Personal);
             
             insuranceProfileController.Dock = DockStyle.Fill;
             personalProfileController.Dock = DockStyle.Fill;

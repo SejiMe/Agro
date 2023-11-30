@@ -17,13 +17,12 @@ namespace Agro.Features.Person
             _context = context;
         }
 
-        public PersonalAddress GetPersonAddress(int id)
+        public Address GetPersonalAddress(int PK_Personal)
         {
             var res = _context.PersonalAddresses
-                .Include(p => p.Personal)
-                .Include(p => p.Address)
-                .Where(p => p.FK_Personal == id)
-                .First();
+                .Where(pa => pa.FK_Personal == PK_Personal)
+                .Select(pa => pa.Address)
+                .Single();
             return res;
         }
 
@@ -58,6 +57,11 @@ namespace Agro.Features.Person
         public bool SavePerson(Personal person)
         {
             throw new NotImplementedException();
+        }
+
+        public void Save()
+        {
+           _context.SaveChanges();
         }
     }
 }

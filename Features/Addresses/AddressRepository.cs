@@ -18,17 +18,23 @@ public class AddressRepository : IAddressRepository
 
     public bool AddAddress(Address address)
     {
-        _context.Addresses.Add(address);
-        var res = _context.SaveChanges();
-        
-        if(res > 0)
-        {
-            return true;
-        }
-        else 
-        { 
-            return false; 
-        }
+        throw new NotImplementedException();
     }
-    
+
+
+    public void Save()
+    {
+       _context.SaveChanges();
+    }
+
+    public void UpdateAddress(Address address)
+    {
+        _context.Addresses.Add(address);
+    }
+
+    bool IAddressRepository.UpdateAddress(Address address)
+    {
+        _context.Update(address); 
+        return true;
+    }
 }

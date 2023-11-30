@@ -10,11 +10,13 @@ namespace Agro.Features.Person
     public interface IPersonalRepository
     {
         IQueryable<Personal> GetAll();
+
+        void Save();
         
         Personal GetPerson(int id);
 
-        PersonalAddress GetPersonAddress(int id);
-
+        Address GetPersonalAddress(int id);
+        
         Personal GetPersonByUser(Guid PK_User);
 
         bool RegisterPerson(Personal personal);

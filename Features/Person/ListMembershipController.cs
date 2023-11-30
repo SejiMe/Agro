@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace Agro.Features.Person
 {
-    public partial class InsuranceProfileController : UserControl
+    public partial class ListMembershipController : UserControl
     {
-        public InsuranceProfileController()
+        public ListMembershipController()
         {
             InitializeComponent();
-        }
-
-        private void toolTip1_Popup(object sender, PopupEventArgs e)
-        {
-
         }
     }
 }

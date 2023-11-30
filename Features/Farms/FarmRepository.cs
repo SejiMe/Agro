@@ -52,6 +52,16 @@ public class FarmRepository : IFarmRepository
         return task;
     }
 
+    public Address GetFarmAddress(Guid PK_Farm)
+    {
+        var res = _context.Farms
+            .Where(farm => farm.PK_Farm == PK_Farm)
+            .Select(farm => farm.FK_Address)
+            .Single();
+
+        return res;
+    }
+
     public Task<bool> HasFarm(int Pk_person)
     {
         var task = Task.Run(async () =>
