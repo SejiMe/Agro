@@ -11,7 +11,7 @@ public interface IFarmRepository
 
     Address GetFarmAddress(Guid PK_Farm);
 
-    Farm GetFarm(int owner);
+    Farm GetFarm(int owner, string CommodityName);
 
     Task<IEnumerable<Farm>> GetAllFarm(int owner);
 

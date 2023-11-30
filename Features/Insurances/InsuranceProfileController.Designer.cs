@@ -248,9 +248,9 @@
             FarmSelectCB.Anchor = AnchorStyles.Top;
             FarmSelectCB.DropDownWidth = 120;
             FarmSelectCB.FormattingEnabled = true;
-            FarmSelectCB.Location = new Point(311, 16);
+            FarmSelectCB.Location = new Point(467, 17);
             FarmSelectCB.Name = "FarmSelectCB";
-            FarmSelectCB.Size = new Size(226, 23);
+            FarmSelectCB.Size = new Size(278, 23);
             FarmSelectCB.TabIndex = 16;
             FarmSelectCB.SelectedIndexChanged += FarmSelectCB_SelectedIndexChanged;
             // 

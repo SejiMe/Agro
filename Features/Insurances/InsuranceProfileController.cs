@@ -114,7 +114,7 @@ namespace Agro.Features.Person
         {
             if(addresses.TryGetValue(FarmSelectCB.SelectedText, out var SelectedAddress))
             {
-                var results = _farmRepository.GetFarm
+                var results = _farmRepository.GetFarm(_profileId, FarmSelectCB.SelectedText);
             }
             
         }
