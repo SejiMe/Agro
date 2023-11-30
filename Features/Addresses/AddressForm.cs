@@ -76,14 +76,9 @@ namespace Agro.Features.Addresses
         {
             address.Barangay = BarangayCB.Text;
 
-            if (LotNumberText.Text != null)
-            {
+            if (LotNumberText.Text != string.Empty)
                 address.LotNumber = LotNumberText.Text;
-
-            }else
-            {
-                address.LotNumber = null;
-            }
+           
 
             if (HouseNumber.Text != string.Empty)
                 address.HouseNumber = HouseNumber.Text;

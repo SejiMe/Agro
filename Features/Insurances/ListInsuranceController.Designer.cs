@@ -1,6 +1,6 @@
-﻿namespace Agro.Features.Layout
+﻿namespace Agro.Features.Insurances
 {
-    partial class TechniciansNavigation
+    partial class ListInsuranceController
     {
         /// <summary> 
         /// Required designer variable.
@@ -30,12 +30,12 @@
         {
             SuspendLayout();
             // 
-            // TechniciansNavigation
+            // ListInsuranceController
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Name = "TechniciansNavigation";
-            Size = new Size(190, 540);
+            Name = "ListInsuranceController";
+            Size = new Size(826, 524);
             ResumeLayout(false);
         }
 

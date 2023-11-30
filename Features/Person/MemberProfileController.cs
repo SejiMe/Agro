@@ -114,7 +114,7 @@ namespace Agro.Features.Person
 
             #endregion
             #region rice initial data
-            if (rice.FK_Address.LotNumber != null)
+            if (rice.FK_Address.LotNumber != null && rice.FK_Address.LotNumber != "")
                 RiceAddressText.Text = rice.FK_Address.LotNumber + ", ";
 
             if (rice.FK_Address.Street != null)

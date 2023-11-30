@@ -52,6 +52,17 @@ public class FarmRepository : IFarmRepository
         return task;
     }
 
+    public Farm GetFarm(int owner, string commodityName)
+    {
+        var res = _context.Farms
+            .Where(farm => farm.FK_Personal.PK_Personal == owner)
+            .Include(farm => farm.FK_Address)
+            .Where(f => f.CommodityName == commodityName)
+            .Single() ;
+
+        return res;
+    }
+
     public Address GetFarmAddress(Guid PK_Farm)
     {
         var res = _context.Farms

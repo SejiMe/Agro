@@ -29,11 +29,8 @@
         private void InitializeComponent()
         {
             tableLayoutPanel1 = new TableLayoutPanel();
-            button8 = new Button();
-            button5 = new Button();
             CropInsuranceBtn = new Button();
             ApplyMembershipBtn = new Button();
-            ProfileBtn = new Button();
             tableLayoutPanel2 = new TableLayoutPanel();
             button3 = new Button();
             button4 = new Button();
@@ -49,55 +46,28 @@
             // 
             tableLayoutPanel1.ColumnCount = 1;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Controls.Add(button8, 0, 4);
-            tableLayoutPanel1.Controls.Add(button5, 0, 3);
-            tableLayoutPanel1.Controls.Add(CropInsuranceBtn, 0, 2);
-            tableLayoutPanel1.Controls.Add(ApplyMembershipBtn, 0, 1);
-            tableLayoutPanel1.Controls.Add(ProfileBtn, 0, 0);
+            tableLayoutPanel1.Controls.Add(CropInsuranceBtn, 0, 1);
+            tableLayoutPanel1.Controls.Add(ApplyMembershipBtn, 0, 0);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 7;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 70F));
+            tableLayoutPanel1.RowCount = 6;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 70F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 70F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 70F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 70F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             tableLayoutPanel1.Size = new Size(181, 644);
             tableLayoutPanel1.TabIndex = 0;
-            // 
-            // button8
-            // 
-            button8.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            button8.BackColor = Color.LimeGreen;
-            button8.Font = new Font("Segoe UI", 12F);
-            button8.Location = new Point(3, 283);
-            button8.Name = "button8";
-            button8.Size = new Size(175, 64);
-            button8.TabIndex = 3;
-            button8.Text = "Announcement";
-            button8.UseVisualStyleBackColor = false;
-            // 
-            // button5
-            // 
-            button5.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            button5.BackColor = Color.LimeGreen;
-            button5.Font = new Font("Segoe UI", 12F);
-            button5.Location = new Point(3, 213);
-            button5.Name = "button5";
-            button5.Size = new Size(175, 64);
-            button5.TabIndex = 2;
-            button5.Text = "Calendar Activities";
-            button5.UseVisualStyleBackColor = false;
             // 
             // CropInsuranceBtn
             // 
             CropInsuranceBtn.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             CropInsuranceBtn.BackColor = Color.LimeGreen;
             CropInsuranceBtn.Font = new Font("Segoe UI", 12F);
-            CropInsuranceBtn.Location = new Point(3, 143);
+            CropInsuranceBtn.Location = new Point(3, 73);
             CropInsuranceBtn.Name = "CropInsuranceBtn";
             CropInsuranceBtn.Size = new Size(175, 64);
             CropInsuranceBtn.TabIndex = 1;
@@ -110,26 +80,13 @@
             ApplyMembershipBtn.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             ApplyMembershipBtn.BackColor = Color.LimeGreen;
             ApplyMembershipBtn.Font = new Font("Segoe UI", 12F);
-            ApplyMembershipBtn.Location = new Point(3, 73);
+            ApplyMembershipBtn.Location = new Point(3, 3);
             ApplyMembershipBtn.Name = "ApplyMembershipBtn";
             ApplyMembershipBtn.Size = new Size(175, 64);
             ApplyMembershipBtn.TabIndex = 0;
             ApplyMembershipBtn.Text = "Apply Membership";
             ApplyMembershipBtn.UseVisualStyleBackColor = false;
             ApplyMembershipBtn.Click += ApplyMembershipBtn_Click;
-            // 
-            // ProfileBtn
-            // 
-            ProfileBtn.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            ProfileBtn.BackColor = Color.LimeGreen;
-            ProfileBtn.Font = new Font("Segoe UI", 12F);
-            ProfileBtn.Location = new Point(3, 3);
-            ProfileBtn.Name = "ProfileBtn";
-            ProfileBtn.Size = new Size(175, 64);
-            ProfileBtn.TabIndex = 4;
-            ProfileBtn.Text = "Profile";
-            ProfileBtn.UseVisualStyleBackColor = false;
-            ProfileBtn.Click += ProfileBtn_Click;
             // 
             // tableLayoutPanel2
             // 
@@ -214,6 +171,7 @@
             Controls.Add(tableLayoutPanel1);
             Name = "GeneralNavigation";
             Size = new Size(181, 644);
+            Load += GeneralNavigation_Load;
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel3.ResumeLayout(false);
@@ -223,16 +181,13 @@
         #endregion
 
         private TableLayoutPanel tableLayoutPanel1;
-        private Button ApplyMembershipBtn;
-        private Button button5;
         private Button CropInsuranceBtn;
-        private Button button8;
         private TableLayoutPanel tableLayoutPanel2;
         private Button button3;
         private Button button4;
         private TableLayoutPanel tableLayoutPanel3;
         private Button button6;
         private Button button7;
-        private Button ProfileBtn;
+        private Button ApplyMembershipBtn;
     }
 }
