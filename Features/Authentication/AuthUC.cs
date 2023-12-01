@@ -12,18 +12,22 @@ using System.Windows.Forms;
 
 namespace Agro.Features.Authentication
 {
+    using Agro.Features.Farms;
     using Agro.Features.Layout;
+    using Agro.Features.Person;
     using BCrypt.Net;
     public partial class AuthUC : UserControl
     {
         private readonly IAuthenticationRepository _repository;
+        private readonly IFarmRepository _farmRepository;
         private readonly IServiceProvider _serviceProvider;
         private readonly AuthForm _form;
         private readonly MainForm _mainForm;
 
-        public AuthUC(IServiceProvider serviceProvider, IAuthenticationRepository repository, AuthForm LoginForm, MainForm MainForm)
+        public AuthUC(IServiceProvider serviceProvider,IFarmRepository farm, IAuthenticationRepository repository, AuthForm LoginForm, MainForm MainForm)
         {
             _repository = repository;
+            _farmRepository = farm;
             _serviceProvider = serviceProvider;
             _form = LoginForm;
             InitializeComponent();
@@ -94,7 +98,7 @@ namespace Agro.Features.Authentication
             if (isVerified)
             {
               var isLoggedIn =  _repository.Login(user);
-               
+              
                 if(isLoggedIn)
                 {
                     MessageBox.Show("Have a great day! We look forward to serving you :).");

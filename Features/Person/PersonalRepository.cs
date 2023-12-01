@@ -44,14 +44,14 @@ namespace Agro.Features.Person
             return person;
         }
 
-        public bool RegisterPerson(Personal personal)
+        public Personal? RegisterPerson(Personal personal)
         {
             _context.Add(personal);
             var res = _context.SaveChanges();
             if(res > 0)
-                return true;
+                return personal;
             else 
-                return false;
+                return null;
         }
 
         public bool SavePerson(Personal person)

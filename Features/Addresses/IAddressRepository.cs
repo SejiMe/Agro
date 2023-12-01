@@ -13,6 +13,8 @@ public interface IAddressRepository
 
     bool UpdateAddress(Address address);
 
+    void CreateInitialAddress();
+
     void Save();
 
 }

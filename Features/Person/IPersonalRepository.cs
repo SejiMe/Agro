@@ -19,7 +19,7 @@ namespace Agro.Features.Person
         
         Personal GetPersonByUser(Guid PK_User);
 
-        bool RegisterPerson(Personal personal);
+        Personal RegisterPerson(Personal personal);
        
         bool SavePerson(Personal person);
     }

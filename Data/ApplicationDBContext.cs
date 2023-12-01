@@ -71,7 +71,7 @@ public class ApplicationDBContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseSqlServer(ConfigurationManager.ConnectionStrings["AGROConnection"].ConnectionString);
+        optionsBuilder.UseSqlServer(ConfigurationManager.ConnectionStrings["MSITConnection"].ConnectionString);
         base.OnConfiguring(optionsBuilder);
     }
 }

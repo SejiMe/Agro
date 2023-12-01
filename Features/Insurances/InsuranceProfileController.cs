@@ -23,43 +23,62 @@ namespace Agro.Features.Person
 
         private Personal personData;
         private readonly int _profileId;
-   
-       
-        Dictionary<string, Guid> addresses;
-        
+
+
+        Dictionary<string, Guid> addresses = new();
+
         public InsuranceProfileController(IPersonalRepository personalRepository, IFarmRepository farmRepository, IInsuranceRepository insuranceRepository, IServiceProvider serviceProvider, int PK_Personal)
         {
+            
+            InitializeComponent();
+
+
             _personalRepository = personalRepository;
             _farmRepository = farmRepository;
             _insuranceRepository = insuranceRepository;
             _serviceProvider = serviceProvider;
             _profileId = PK_Personal;
-            InitializeComponent();
-
-
-
         }
 
 
-        private async void InsuranceProfileController_Load(object sender, EventArgs e)
+        private void InsuranceProfileController_Load(object sender, EventArgs e)
         {
-            FarmSelectCB.Items.Clear();
-            var farms = _farmRepository.GetAllFarm(_profileId);
 
-            foreach (Farm farm in farms.Result)
+
+
+            FarmSelectCB.Items.Clear();
+
+
+            var hasFarm =  _farmRepository.HasFarm(_profileId);
+            Task<IEnumerable<Farm>> farms = null;
+
+
+            if (hasFarm.Result)
             {
-                if ((farm.CommodityName == null || farm.CommodityName == string.Empty) && farm.isHVCDP)
+                farms = _farmRepository.GetAllFarm(_profileId);
+            }
+           
+           
+            if(farms.Result != null)
+            {
+                foreach (Farm farm in farms.Result)
                 {
-                    addresses.Add("HVCDP", farm.PK_Farm.Value);
-                    FarmSelectCB.Items.Add("HVCDP");
-                    return;
-                }
-                else
-                {
-                    addresses.Add(farm.CommodityName, farm.PK_Farm.Value);
-                    FarmSelectCB.Items.Add(farm.CommodityName);
+                    if ((farm.CommodityName == null || farm.CommodityName == string.Empty) && farm.isHVCDP == true)
+                    {
+                        Console.WriteLine(farm.PK_Farm.Value);
+                        MessageBox.Show(farm.PK_Farm.Value.ToString());
+                        addresses.Add("HVCDP",farm.PK_Farm.Value);
+                        FarmSelectCB.Items.Add("HVCDP");
+                        continue;
+                    }
+                    else
+                    {
+                        addresses.Add(farm.CommodityName, farm.PK_Farm.Value);
+                        FarmSelectCB.Items.Add(farm.CommodityName);
+                    }
                 }
             }
+            
 
 
             personData = _personalRepository.GetPerson(_profileId);
@@ -101,7 +120,6 @@ namespace Agro.Features.Person
             //    RiceAreaText.Text = rice.AreaSQM.ToString();
             #endregion
 
-
         }
 
 
@@ -112,11 +130,21 @@ namespace Agro.Features.Person
 
         private void FarmSelectCB_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(addresses.TryGetValue(FarmSelectCB.SelectedText, out var SelectedAddress))
+            if (addresses.TryGetValue(FarmSelectCB.SelectedText, out var SelectedAddress))
             {
-                var results = _farmRepository.GetFarm(_profileId, FarmSelectCB.SelectedText);
+                var results = _farmRepository.GetFarmAddress(SelectedAddress);
             }
-            
+
+        }
+
+        public void RefreshPage()
+        {
+           
+            this.OnLoad(EventArgs.Empty);
+        }
+        private void InsuranceProfileController_Enter(object sender, EventArgs e)
+        {
+           
         }
     }
 }

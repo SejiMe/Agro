@@ -11,6 +11,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Agro.Features.Authentication;
+
+using Agro.Features.Farms;
 using BCrypt.Net;
 
 
@@ -18,6 +20,7 @@ using BCrypt.Net;
 public partial class RegisterUC : UserControl
 {
     private readonly IServiceProvider _serviceProvider;
+    private readonly IFarmRepository _farmRepository;
     private readonly IPersonalRepository _personalRepository;
     private readonly IAuthenticationRepository _authenticationRepository;
 
@@ -25,9 +28,11 @@ public partial class RegisterUC : UserControl
     public RegisterUC(
         IServiceProvider serviceProvider,
         IAuthenticationRepository authenticationRepository,
-        IPersonalRepository personalRepository)
+        IPersonalRepository personalRepository,
+        IFarmRepository farmRepository)
     {
         InitializeComponent();
+        _farmRepository = farmRepository;
         _serviceProvider = serviceProvider;
         _personalRepository = personalRepository;
         _authenticationRepository = authenticationRepository;
@@ -35,7 +40,7 @@ public partial class RegisterUC : UserControl
 
     private void CancelLabel_Click(object sender, EventArgs e)
     {
-        var ans = MessageBox.Show("Are you sure you want to exit?", "Exit Agro", MessageBoxButtons.OKCancel);
+        var ans = MessageBox.Show("Are you sure you want to exit?", "Close Agro Application", MessageBoxButtons.OKCancel);
 
         if (ans == DialogResult.OK)
             Parent.Controls["SelectRole"].BringToFront();
@@ -99,11 +104,14 @@ public partial class RegisterUC : UserControl
         string salt = BCrypt.GenerateSalt(10);
         string password = BCrypt.HashPassword(PasswordText.Text, salt);
                 
-        bool result = _personalRepository.RegisterPerson(new Personal() { FirstName = FirstNameText.Text, LastName = LastNameText.Text, 
+        var result = _personalRepository.RegisterPerson(new Personal() { FirstName = FirstNameText.Text, LastName = LastNameText.Text, 
             FK_User = new User() { Email = EmailText.Text, Password = password, Salt = salt, Role = RoleLabel.Text, UserName = UsernameText.Text } });
 
-        if (result)
+
+        if (result != null)
         {
+
+            _farmRepository.CreateInitialFarms(result);
            var dialogRes =  MessageBox.Show("Successfully Created a new User", "Successful", MessageBoxButtons.OK);
            if(dialogRes == DialogResult.OK)
                Parent.Controls["AuthUC"].BringToFront();

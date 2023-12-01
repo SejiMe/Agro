@@ -64,6 +64,7 @@
             label9 = new Label();
             label10 = new Label();
             AssociationText = new TextBox();
+            UpdateBtn = new Button();
             groupBox2.SuspendLayout();
             groupBox1.SuspendLayout();
             groupBox3.SuspendLayout();
@@ -75,7 +76,7 @@
             CurrentAddressEditBtn.Anchor = AnchorStyles.Top;
             CurrentAddressEditBtn.BackgroundImage = Properties.Resources.icons8_edit_32;
             CurrentAddressEditBtn.BackgroundImageLayout = ImageLayout.Zoom;
-            CurrentAddressEditBtn.Location = new Point(72, 250);
+            CurrentAddressEditBtn.Location = new Point(72, 266);
             CurrentAddressEditBtn.Name = "CurrentAddressEditBtn";
             CurrentAddressEditBtn.Size = new Size(30, 23);
             CurrentAddressEditBtn.TabIndex = 24;
@@ -86,7 +87,7 @@
             // 
             label8.Anchor = AnchorStyles.Top;
             label8.AutoSize = true;
-            label8.Location = new Point(72, 231);
+            label8.Location = new Point(72, 247);
             label8.Name = "label8";
             label8.Size = new Size(49, 15);
             label8.TabIndex = 23;
@@ -95,7 +96,7 @@
             // CurrentAddressText
             // 
             CurrentAddressText.Anchor = AnchorStyles.Top;
-            CurrentAddressText.Location = new Point(105, 250);
+            CurrentAddressText.Location = new Point(105, 266);
             CurrentAddressText.Name = "CurrentAddressText";
             CurrentAddressText.PlaceholderText = "Current Address";
             CurrentAddressText.ReadOnly = true;
@@ -108,7 +109,7 @@
             groupBox2.Controls.Add(RiceAreaText);
             groupBox2.Controls.Add(RiceFarmAddressBtn);
             groupBox2.Controls.Add(RiceAddressText);
-            groupBox2.Location = new Point(66, 397);
+            groupBox2.Location = new Point(66, 413);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(849, 60);
             groupBox2.TabIndex = 22;
@@ -121,6 +122,7 @@
             RiceAreaText.Location = new Point(51, 22);
             RiceAreaText.Name = "RiceAreaText";
             RiceAreaText.PlaceholderText = "Area in sqm";
+            RiceAreaText.ReadOnly = true;
             RiceAreaText.Size = new Size(361, 23);
             RiceAreaText.TabIndex = 13;
             // 
@@ -147,7 +149,7 @@
             // 
             label7.Anchor = AnchorStyles.Top;
             label7.AutoSize = true;
-            label7.Location = new Point(689, 180);
+            label7.Location = new Point(689, 196);
             label7.Name = "label7";
             label7.Size = new Size(45, 15);
             label7.TabIndex = 21;
@@ -157,9 +159,10 @@
             // 
             GenderCB.Anchor = AnchorStyles.Top;
             GenderCB.DropDownWidth = 120;
+            GenderCB.Enabled = false;
             GenderCB.FormattingEnabled = true;
             GenderCB.Items.AddRange(new object[] { "Male", "Female" });
-            GenderCB.Location = new Point(689, 198);
+            GenderCB.Location = new Point(689, 214);
             GenderCB.Name = "GenderCB";
             GenderCB.Size = new Size(226, 23);
             GenderCB.TabIndex = 20;
@@ -167,8 +170,9 @@
             // DateTimePicker
             // 
             DateTimePicker.Anchor = AnchorStyles.Top;
+            DateTimePicker.Enabled = false;
             DateTimePicker.Format = DateTimePickerFormat.Short;
-            DateTimePicker.Location = new Point(373, 198);
+            DateTimePicker.Location = new Point(373, 214);
             DateTimePicker.Name = "DateTimePicker";
             DateTimePicker.Size = new Size(310, 23);
             DateTimePicker.TabIndex = 19;
@@ -178,7 +182,7 @@
             // 
             label6.Anchor = AnchorStyles.Top;
             label6.AutoSize = true;
-            label6.Location = new Point(420, 180);
+            label6.Location = new Point(420, 196);
             label6.Name = "label6";
             label6.Size = new Size(73, 15);
             label6.TabIndex = 18;
@@ -187,7 +191,7 @@
             // textBox6
             // 
             textBox6.Anchor = AnchorStyles.Top;
-            textBox6.Location = new Point(72, 198);
+            textBox6.Location = new Point(72, 214);
             textBox6.Name = "textBox6";
             textBox6.ReadOnly = true;
             textBox6.Size = new Size(39, 23);
@@ -197,9 +201,10 @@
             // ContactNumberText
             // 
             ContactNumberText.Anchor = AnchorStyles.Top;
-            ContactNumberText.Location = new Point(117, 198);
+            ContactNumberText.Location = new Point(117, 214);
             ContactNumberText.Name = "ContactNumberText";
             ContactNumberText.PlaceholderText = "09123456789";
+            ContactNumberText.ReadOnly = true;
             ContactNumberText.Size = new Size(250, 23);
             ContactNumberText.TabIndex = 16;
             // 
@@ -207,7 +212,7 @@
             // 
             label5.Anchor = AnchorStyles.Top;
             label5.AutoSize = true;
-            label5.Location = new Point(72, 180);
+            label5.Location = new Point(72, 196);
             label5.Name = "label5";
             label5.Size = new Size(96, 15);
             label5.TabIndex = 15;
@@ -226,7 +231,7 @@
             groupBox1.Controls.Add(FirstNameText);
             groupBox1.FlatStyle = FlatStyle.Flat;
             groupBox1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            groupBox1.Location = new Point(72, 61);
+            groupBox1.Location = new Point(72, 77);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(843, 100);
             groupBox1.TabIndex = 14;
@@ -247,6 +252,7 @@
             SuffixText.Location = new Point(769, 53);
             SuffixText.MinimumSize = new Size(0, 30);
             SuffixText.Name = "SuffixText";
+            SuffixText.ReadOnly = true;
             SuffixText.Size = new Size(47, 30);
             SuffixText.TabIndex = 8;
             // 
@@ -265,6 +271,7 @@
             LastNameText.MaximumSize = new Size(250, 0);
             LastNameText.MinimumSize = new Size(0, 30);
             LastNameText.Name = "LastNameText";
+            LastNameText.ReadOnly = true;
             LastNameText.Size = new Size(250, 30);
             LastNameText.TabIndex = 6;
             // 
@@ -283,6 +290,7 @@
             MiddleNameText.MaximumSize = new Size(250, 0);
             MiddleNameText.MinimumSize = new Size(0, 30);
             MiddleNameText.Name = "MiddleNameText";
+            MiddleNameText.ReadOnly = true;
             MiddleNameText.Size = new Size(212, 30);
             MiddleNameText.TabIndex = 4;
             MiddleNameText.TextChanged += MiddleNameText_TextChanged;
@@ -302,6 +310,7 @@
             FirstNameText.MaximumSize = new Size(250, 0);
             FirstNameText.MinimumSize = new Size(0, 30);
             FirstNameText.Name = "FirstNameText";
+            FirstNameText.ReadOnly = true;
             FirstNameText.Size = new Size(245, 30);
             FirstNameText.TabIndex = 2;
             // 
@@ -312,7 +321,7 @@
             groupBox3.Controls.Add(HVCDPAddressText);
             groupBox3.Controls.Add(HVCDPAreaText);
             groupBox3.Controls.Add(CommodityText);
-            groupBox3.Location = new Point(66, 547);
+            groupBox3.Location = new Point(66, 563);
             groupBox3.Name = "groupBox3";
             groupBox3.Size = new Size(849, 60);
             groupBox3.TabIndex = 25;
@@ -343,6 +352,7 @@
             HVCDPAreaText.Location = new Point(263, 22);
             HVCDPAreaText.Name = "HVCDPAreaText";
             HVCDPAreaText.PlaceholderText = "Area in sqm";
+            HVCDPAreaText.ReadOnly = true;
             HVCDPAreaText.Size = new Size(149, 23);
             HVCDPAreaText.TabIndex = 15;
             // 
@@ -351,6 +361,7 @@
             CommodityText.Location = new Point(51, 22);
             CommodityText.Name = "CommodityText";
             CommodityText.PlaceholderText = "Commodity";
+            CommodityText.ReadOnly = true;
             CommodityText.Size = new Size(206, 23);
             CommodityText.TabIndex = 14;
             // 
@@ -360,7 +371,7 @@
             groupBox4.Controls.Add(CornAreaText);
             groupBox4.Controls.Add(CornFarmAddressBtn);
             groupBox4.Controls.Add(CornAddressText);
-            groupBox4.Location = new Point(65, 474);
+            groupBox4.Location = new Point(65, 490);
             groupBox4.Name = "groupBox4";
             groupBox4.Size = new Size(849, 60);
             groupBox4.TabIndex = 26;
@@ -372,6 +383,7 @@
             CornAreaText.Location = new Point(51, 22);
             CornAreaText.Name = "CornAreaText";
             CornAreaText.PlaceholderText = "Area in sqm";
+            CornAreaText.ReadOnly = true;
             CornAreaText.Size = new Size(361, 23);
             CornAreaText.TabIndex = 13;
             // 
@@ -397,9 +409,10 @@
             // SpouseText
             // 
             SpouseText.Anchor = AnchorStyles.Top;
-            SpouseText.Location = new Point(73, 302);
+            SpouseText.Location = new Point(73, 318);
             SpouseText.Name = "SpouseText";
             SpouseText.PlaceholderText = "Spouse's Name";
+            SpouseText.ReadOnly = true;
             SpouseText.Size = new Size(842, 23);
             SpouseText.TabIndex = 27;
             // 
@@ -407,7 +420,7 @@
             // 
             label9.Anchor = AnchorStyles.Top;
             label9.AutoSize = true;
-            label9.Location = new Point(72, 284);
+            label9.Location = new Point(72, 300);
             label9.Name = "label9";
             label9.Size = new Size(45, 15);
             label9.TabIndex = 28;
@@ -417,7 +430,7 @@
             // 
             label10.Anchor = AnchorStyles.Top;
             label10.AutoSize = true;
-            label10.Location = new Point(71, 335);
+            label10.Location = new Point(71, 351);
             label10.Name = "label10";
             label10.Size = new Size(68, 15);
             label10.TabIndex = 30;
@@ -426,16 +439,31 @@
             // AssociationText
             // 
             AssociationText.Anchor = AnchorStyles.Top;
-            AssociationText.Location = new Point(72, 353);
+            AssociationText.Location = new Point(72, 369);
             AssociationText.Name = "AssociationText";
             AssociationText.PlaceholderText = "Association";
+            AssociationText.ReadOnly = true;
             AssociationText.Size = new Size(842, 23);
             AssociationText.TabIndex = 29;
+            // 
+            // UpdateBtn
+            // 
+            UpdateBtn.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            UpdateBtn.BackColor = Color.LimeGreen;
+            UpdateBtn.Font = new Font("Segoe UI", 12F);
+            UpdateBtn.Location = new Point(66, 21);
+            UpdateBtn.Name = "UpdateBtn";
+            UpdateBtn.Size = new Size(130, 37);
+            UpdateBtn.TabIndex = 31;
+            UpdateBtn.Text = "Update";
+            UpdateBtn.UseVisualStyleBackColor = false;
+            UpdateBtn.Click += UpdateBtn_Click;
             // 
             // MemberProfileController
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(UpdateBtn);
             Controls.Add(label10);
             Controls.Add(AssociationText);
             Controls.Add(label9);
@@ -455,7 +483,7 @@
             Controls.Add(label5);
             Controls.Add(groupBox1);
             Name = "MemberProfileController";
-            Size = new Size(980, 608);
+            Size = new Size(980, 635);
             Load += ProfileController_Load;
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
@@ -506,5 +534,6 @@
         private Label label9;
         private Label label10;
         private TextBox AssociationText;
+        private Button UpdateBtn;
     }
 }

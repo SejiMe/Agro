@@ -80,15 +80,25 @@ namespace Agro.Features.Layout
 
 
             #region Controller Panel MAIN
+            if (user.role == Roles.FARMER.ToString() || user.role == Roles.ADMIN.ToString())
+            {
+               
+                var insuranceProfileController = ActivatorUtilities.CreateInstance<InsuranceProfileController>(_serviceProvider, authenticationDTO.PK_Personal);
+                var personalProfileController = ActivatorUtilities.CreateInstance<MemberProfileController>(_serviceProvider, authenticationDTO.PK_Personal);
 
-            var insuranceProfileController = ActivatorUtilities.CreateInstance<InsuranceProfileController>(_serviceProvider, authenticationDTO.PK_Personal);
-            var personalProfileController = ActivatorUtilities.CreateInstance<MemberProfileController>(_serviceProvider, authenticationDTO.PK_Personal);
+                insuranceProfileController.Dock = DockStyle.Fill;
+                personalProfileController.Dock = DockStyle.Fill;
+
+                ControllerPanel.Controls.Add(personalProfileController);
+                ControllerPanel.Controls.Add(insuranceProfileController);
+            }else
+            {
+                // TODO add list controllers
+            }
+
+
             
-            insuranceProfileController.Dock = DockStyle.Fill;
-            personalProfileController.Dock = DockStyle.Fill;
-
-            ControllerPanel.Controls.Add(personalProfileController);
-            ControllerPanel.Controls.Add(insuranceProfileController);
+            
             #endregion
         }
     }

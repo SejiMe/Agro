@@ -41,7 +41,7 @@ namespace Agro.Features.Person
         }
 
 
-        private async void ProfileController_Load(object sender, EventArgs e)
+        private void ProfileController_Load(object sender, EventArgs e)
         {
             personData = _personalRepository.GetPerson(_profileId);
 
@@ -59,10 +59,10 @@ namespace Agro.Features.Person
                 SpouseText.Text = personData.SpouseName;
 
 
-            var hasFarm = await _farmRepository.HasFarm(_profileId);
+            var hasFarm = _farmRepository.HasFarm(_profileId);
             Task<IEnumerable<Farm>> farms;
 
-            if (hasFarm)
+            if (hasFarm.Result)
             {
                 // Load all the farm that this profile Uses
                 farms = _farmRepository.GetAllFarm(_profileId);
@@ -81,7 +81,7 @@ namespace Agro.Features.Person
             {
                 // IF this person doesnt have any farm create initialized a farm with address for default
                 // use for Rice and Corn and HVDCP
-                await _farmRepository.CreateInitialFarms(personData);
+                _farmRepository.CreateInitialFarms(personData);
                 farms = _farmRepository.GetAllFarm(_profileId);
 
                 rice = farms.Result
@@ -209,6 +209,36 @@ namespace Agro.Features.Person
             var form = _serviceProvider.GetRequiredService<AddressForm>();
             form.SetArguments("Farm", null, hvcdp.PK_Farm, null, this);
             form.ShowDialog();
+        }
+
+        private void UpdateBtn_Click(object sender, EventArgs e)
+        {
+            switch (UpdateBtn.Text)
+            {
+                case "Update":
+                    FirstNameText.ReadOnly = false;
+                    LastNameText.ReadOnly = false;
+                    MiddleNameText.ReadOnly = false;
+                    SuffixText.ReadOnly = false;
+                    GenderCB.Enabled = true;
+                    DateTimePicker.Enabled = true;
+                    AssociationText.ReadOnly = false;
+                    SpouseText.ReadOnly = false;
+                    RiceAreaText.ReadOnly = false;
+                    CornAreaText.ReadOnly = false;
+                    CommodityText.ReadOnly = false;
+                    HVCDPAreaText.ReadOnly = false;
+                    UpdateBtn.Text = "Save";
+                    break;
+                case "Save":
+
+                    var res = MessageBox.Show("Do you wish to save the changes?", "Save Membership Profile", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                    if(res == DialogResult.Yes)
+                    {
+                        _personalRepository.Save();
+                    }
+                    break;
+            }
         }
     }
 }

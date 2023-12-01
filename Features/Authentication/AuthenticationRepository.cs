@@ -14,7 +14,7 @@ public class AuthenticationRepository : IAuthenticationRepository
     private readonly ApplicationDBContext _context;
 
     private DateTime LoggedIn { get; set; }
-    private Guid? currentUser { get; set; }
+    private Guid currentUser { get; set; } = Guid.Empty;
 
     public AuthenticationRepository(ApplicationDBContext context)
     {
@@ -76,7 +76,7 @@ public class AuthenticationRepository : IAuthenticationRepository
 
     public void Logout()
     {
-        currentUser = null;
+        currentUser = Guid.Empty;
     }
 
     public AuthenticationDTO GetAuthenticationDetails()
@@ -87,11 +87,12 @@ public class AuthenticationRepository : IAuthenticationRepository
                 .Include(personal => personal.FK_User)
                 .Where(user => user.FK_User.PK_User == currentUser)
                 .First();
-                
+
             return new AuthenticationDTO(currentUser, res.FK_User.UserName, res.FK_User.Role, res.FK_User.Email, LoggedIn, res.PK_Personal);
         }
        
         else
             return null;    
     }
+
 }

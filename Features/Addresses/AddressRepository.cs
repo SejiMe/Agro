@@ -21,6 +21,10 @@ public class AddressRepository : IAddressRepository
         throw new NotImplementedException();
     }
 
+    public void CreateInitialAddress()
+    {
+        throw new NotImplementedException();
+    }
 
     public void Save()
     {

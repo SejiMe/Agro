@@ -47,20 +47,21 @@
             label7 = new Label();
             groupBox2 = new GroupBox();
             FarmSelectCB = new ComboBox();
-            textBox11 = new TextBox();
-            textBox10 = new TextBox();
-            textBox9 = new TextBox();
+            TenurialStatusText = new TextBox();
+            LandSoilText = new TextBox();
+            AreaSqmText = new TextBox();
             FarmAddressBtn = new Button();
-            textBox8 = new TextBox();
+            FarmAddressText = new TextBox();
             CurrentAddressText = new TextBox();
             label8 = new Label();
-            CurrentAddressEditBtn = new Button();
-            CurrentAddressTooltip = new ToolTip(components);
+            InfoToolTip = new ToolTip(components);
             groupBox3 = new GroupBox();
             WestAdjacentText = new TextBox();
             EastAdjacentText = new TextBox();
             SouthAdjacentText = new TextBox();
             NorthAdjacentText = new TextBox();
+            ApplyMembershipBtn = new Button();
+            button1 = new Button();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
@@ -79,7 +80,7 @@
             groupBox1.Controls.Add(FirstNameText);
             groupBox1.FlatStyle = FlatStyle.Flat;
             groupBox1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            groupBox1.Location = new Point(38, 25);
+            groupBox1.Location = new Point(38, 86);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(843, 100);
             groupBox1.TabIndex = 0;
@@ -100,6 +101,7 @@
             SuffixText.Location = new Point(769, 53);
             SuffixText.MinimumSize = new Size(0, 30);
             SuffixText.Name = "SuffixText";
+            SuffixText.ReadOnly = true;
             SuffixText.Size = new Size(47, 30);
             SuffixText.TabIndex = 8;
             // 
@@ -118,6 +120,7 @@
             LastNameText.MaximumSize = new Size(250, 0);
             LastNameText.MinimumSize = new Size(0, 30);
             LastNameText.Name = "LastNameText";
+            LastNameText.ReadOnly = true;
             LastNameText.Size = new Size(250, 30);
             LastNameText.TabIndex = 6;
             // 
@@ -136,6 +139,7 @@
             MiddleNameText.MaximumSize = new Size(250, 0);
             MiddleNameText.MinimumSize = new Size(0, 30);
             MiddleNameText.Name = "MiddleNameText";
+            MiddleNameText.ReadOnly = true;
             MiddleNameText.Size = new Size(212, 30);
             MiddleNameText.TabIndex = 4;
             // 
@@ -154,6 +158,7 @@
             FirstNameText.MaximumSize = new Size(250, 0);
             FirstNameText.MinimumSize = new Size(0, 30);
             FirstNameText.Name = "FirstNameText";
+            FirstNameText.ReadOnly = true;
             FirstNameText.Size = new Size(245, 30);
             FirstNameText.TabIndex = 2;
             // 
@@ -161,7 +166,7 @@
             // 
             label5.Anchor = AnchorStyles.Top;
             label5.AutoSize = true;
-            label5.Location = new Point(38, 144);
+            label5.Location = new Point(44, 205);
             label5.Name = "label5";
             label5.Size = new Size(96, 15);
             label5.TabIndex = 1;
@@ -170,7 +175,7 @@
             // textBox5
             // 
             textBox5.Anchor = AnchorStyles.Top;
-            textBox5.Location = new Point(83, 162);
+            textBox5.Location = new Point(83, 223);
             textBox5.Name = "textBox5";
             textBox5.PlaceholderText = "09123456789";
             textBox5.Size = new Size(206, 23);
@@ -179,7 +184,7 @@
             // textBox6
             // 
             textBox6.Anchor = AnchorStyles.Top;
-            textBox6.Location = new Point(38, 162);
+            textBox6.Location = new Point(38, 223);
             textBox6.Name = "textBox6";
             textBox6.ReadOnly = true;
             textBox6.Size = new Size(39, 23);
@@ -190,7 +195,7 @@
             // 
             label6.Anchor = AnchorStyles.Top;
             label6.AutoSize = true;
-            label6.Location = new Point(343, 144);
+            label6.Location = new Point(343, 205);
             label6.Name = "label6";
             label6.Size = new Size(73, 15);
             label6.TabIndex = 4;
@@ -200,7 +205,7 @@
             // 
             dateTimePicker1.Anchor = AnchorStyles.Top;
             dateTimePicker1.Format = DateTimePickerFormat.Short;
-            dateTimePicker1.Location = new Point(339, 162);
+            dateTimePicker1.Location = new Point(339, 223);
             dateTimePicker1.Name = "dateTimePicker1";
             dateTimePicker1.Size = new Size(261, 23);
             dateTimePicker1.TabIndex = 6;
@@ -212,16 +217,17 @@
             comboBox1.DropDownWidth = 120;
             comboBox1.FormattingEnabled = true;
             comboBox1.Items.AddRange(new object[] { "Male", "Female" });
-            comboBox1.Location = new Point(655, 162);
+            comboBox1.Location = new Point(655, 223);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(226, 23);
             comboBox1.TabIndex = 7;
+            InfoToolTip.SetToolTip(comboBox1, "Addd");
             // 
             // label7
             // 
             label7.Anchor = AnchorStyles.Top;
             label7.AutoSize = true;
-            label7.Location = new Point(655, 144);
+            label7.Location = new Point(655, 205);
             label7.Name = "label7";
             label7.Size = new Size(45, 15);
             label7.TabIndex = 8;
@@ -231,12 +237,12 @@
             // 
             groupBox2.Anchor = AnchorStyles.Top;
             groupBox2.Controls.Add(FarmSelectCB);
-            groupBox2.Controls.Add(textBox11);
-            groupBox2.Controls.Add(textBox10);
-            groupBox2.Controls.Add(textBox9);
+            groupBox2.Controls.Add(TenurialStatusText);
+            groupBox2.Controls.Add(LandSoilText);
+            groupBox2.Controls.Add(AreaSqmText);
             groupBox2.Controls.Add(FarmAddressBtn);
-            groupBox2.Controls.Add(textBox8);
-            groupBox2.Location = new Point(32, 243);
+            groupBox2.Controls.Add(FarmAddressText);
+            groupBox2.Location = new Point(32, 304);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(849, 107);
             groupBox2.TabIndex = 9;
@@ -254,29 +260,29 @@
             FarmSelectCB.TabIndex = 16;
             FarmSelectCB.SelectedIndexChanged += FarmSelectCB_SelectedIndexChanged;
             // 
-            // textBox11
+            // TenurialStatusText
             // 
-            textBox11.Location = new Point(467, 75);
-            textBox11.Name = "textBox11";
-            textBox11.PlaceholderText = "Tenurial";
-            textBox11.Size = new Size(278, 23);
-            textBox11.TabIndex = 15;
+            TenurialStatusText.Location = new Point(467, 75);
+            TenurialStatusText.Name = "TenurialStatusText";
+            TenurialStatusText.PlaceholderText = "Tenurial";
+            TenurialStatusText.Size = new Size(278, 23);
+            TenurialStatusText.TabIndex = 15;
             // 
-            // textBox10
+            // LandSoilText
             // 
-            textBox10.Location = new Point(124, 74);
-            textBox10.Name = "textBox10";
-            textBox10.PlaceholderText = "Land Category / Soil Type";
-            textBox10.Size = new Size(324, 23);
-            textBox10.TabIndex = 14;
+            LandSoilText.Location = new Point(124, 74);
+            LandSoilText.Name = "LandSoilText";
+            LandSoilText.PlaceholderText = "Land Category / Soil Type";
+            LandSoilText.Size = new Size(324, 23);
+            LandSoilText.TabIndex = 14;
             // 
-            // textBox9
+            // AreaSqmText
             // 
-            textBox9.Location = new Point(467, 46);
-            textBox9.Name = "textBox9";
-            textBox9.PlaceholderText = "Area in sqm";
-            textBox9.Size = new Size(278, 23);
-            textBox9.TabIndex = 13;
+            AreaSqmText.Location = new Point(467, 46);
+            AreaSqmText.Name = "AreaSqmText";
+            AreaSqmText.PlaceholderText = "Area in sqm";
+            AreaSqmText.Size = new Size(278, 23);
+            AreaSqmText.TabIndex = 13;
             // 
             // FarmAddressBtn
             // 
@@ -288,50 +294,40 @@
             FarmAddressBtn.TabIndex = 12;
             FarmAddressBtn.UseVisualStyleBackColor = true;
             // 
-            // textBox8
+            // FarmAddressText
             // 
-            textBox8.Location = new Point(124, 45);
-            textBox8.Name = "textBox8";
-            textBox8.PlaceholderText = "Farm Location";
-            textBox8.Size = new Size(324, 23);
-            textBox8.TabIndex = 0;
+            FarmAddressText.Location = new Point(124, 45);
+            FarmAddressText.Name = "FarmAddressText";
+            FarmAddressText.PlaceholderText = "Farm Location";
+            FarmAddressText.Size = new Size(324, 23);
+            FarmAddressText.TabIndex = 0;
             // 
             // CurrentAddressText
             // 
             CurrentAddressText.Anchor = AnchorStyles.Top;
-            CurrentAddressText.Location = new Point(71, 214);
+            CurrentAddressText.Location = new Point(44, 275);
             CurrentAddressText.Name = "CurrentAddressText";
             CurrentAddressText.PlaceholderText = "Current Address";
             CurrentAddressText.ReadOnly = true;
-            CurrentAddressText.Size = new Size(810, 23);
+            CurrentAddressText.Size = new Size(837, 23);
             CurrentAddressText.TabIndex = 0;
+            InfoToolTip.SetToolTip(CurrentAddressText, "Go to Membership to Edit your current Address");
             // 
             // label8
             // 
             label8.Anchor = AnchorStyles.Top;
             label8.AutoSize = true;
-            label8.Location = new Point(71, 196);
+            label8.Location = new Point(44, 257);
             label8.Name = "label8";
             label8.Size = new Size(49, 15);
             label8.TabIndex = 10;
             label8.Text = "Address";
             // 
-            // CurrentAddressEditBtn
+            // InfoToolTip
             // 
-            CurrentAddressEditBtn.Anchor = AnchorStyles.Top;
-            CurrentAddressEditBtn.BackgroundImage = Properties.Resources.icons8_edit_32;
-            CurrentAddressEditBtn.BackgroundImageLayout = ImageLayout.Zoom;
-            CurrentAddressEditBtn.Location = new Point(38, 213);
-            CurrentAddressEditBtn.Name = "CurrentAddressEditBtn";
-            CurrentAddressEditBtn.Size = new Size(30, 23);
-            CurrentAddressEditBtn.TabIndex = 11;
-            CurrentAddressEditBtn.UseVisualStyleBackColor = true;
-            // 
-            // CurrentAddressTooltip
-            // 
-            CurrentAddressTooltip.ToolTipIcon = ToolTipIcon.Info;
-            CurrentAddressTooltip.ToolTipTitle = "Edit Address";
-            CurrentAddressTooltip.Popup += toolTip1_Popup;
+            InfoToolTip.ToolTipIcon = ToolTipIcon.Info;
+            InfoToolTip.ToolTipTitle = "Info on Entering";
+            InfoToolTip.Popup += toolTip1_Popup;
             // 
             // groupBox3
             // 
@@ -340,7 +336,7 @@
             groupBox3.Controls.Add(EastAdjacentText);
             groupBox3.Controls.Add(SouthAdjacentText);
             groupBox3.Controls.Add(NorthAdjacentText);
-            groupBox3.Location = new Point(32, 371);
+            groupBox3.Location = new Point(32, 432);
             groupBox3.Name = "groupBox3";
             groupBox3.Size = new Size(849, 155);
             groupBox3.TabIndex = 12;
@@ -379,13 +375,38 @@
             NorthAdjacentText.Size = new Size(637, 23);
             NorthAdjacentText.TabIndex = 15;
             // 
+            // ApplyMembershipBtn
+            // 
+            ApplyMembershipBtn.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            ApplyMembershipBtn.BackColor = Color.LimeGreen;
+            ApplyMembershipBtn.Font = new Font("Segoe UI", 12F);
+            ApplyMembershipBtn.Location = new Point(38, 25);
+            ApplyMembershipBtn.Name = "ApplyMembershipBtn";
+            ApplyMembershipBtn.Size = new Size(130, 37);
+            ApplyMembershipBtn.TabIndex = 13;
+            ApplyMembershipBtn.Text = "Update";
+            ApplyMembershipBtn.UseVisualStyleBackColor = false;
+            // 
+            // button1
+            // 
+            button1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            button1.BackColor = Color.LimeGreen;
+            button1.Font = new Font("Segoe UI", 12F);
+            button1.Location = new Point(728, 25);
+            button1.Name = "button1";
+            button1.Size = new Size(153, 37);
+            button1.TabIndex = 14;
+            button1.Text = "Submit Application";
+            button1.UseVisualStyleBackColor = false;
+            // 
             // InsuranceProfileController
             // 
-            AccessibleDescription = "v";
+            AccessibleDescription = "";
             AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
+            Controls.Add(button1);
+            Controls.Add(ApplyMembershipBtn);
             Controls.Add(groupBox3);
-            Controls.Add(CurrentAddressEditBtn);
             Controls.Add(label8);
             Controls.Add(CurrentAddressText);
             Controls.Add(groupBox2);
@@ -398,9 +419,10 @@
             Controls.Add(label5);
             Controls.Add(groupBox1);
             Name = "InsuranceProfileController";
-            Size = new Size(900, 545);
-            CurrentAddressTooltip.SetToolTip(this, "CurrentAddressEditBtn\r\nFarmAddressBtn");
+            Size = new Size(900, 599);
+            InfoToolTip.SetToolTip(this, "CurrentAddressEditBtn\r\nFarmAddressBtn");
             Load += InsuranceProfileController_Load;
+            Enter += InsuranceProfileController_Enter;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             groupBox2.ResumeLayout(false);
@@ -432,18 +454,19 @@
         private GroupBox groupBox2;
         private TextBox CurrentAddressText;
         private Label label8;
-        private Button CurrentAddressEditBtn;
-        private ToolTip CurrentAddressTooltip;
+        private ToolTip InfoToolTip;
         private Button FarmAddressBtn;
-        private TextBox textBox8;
-        private TextBox textBox9;
-        private TextBox textBox11;
-        private TextBox textBox10;
+        private TextBox FarmAddressText;
+        private TextBox AreaSqmText;
+        private TextBox TenurialStatusText;
+        private TextBox LandSoilText;
         private GroupBox groupBox3;
         private TextBox WestAdjacentText;
         private TextBox EastAdjacentText;
         private TextBox SouthAdjacentText;
         private TextBox NorthAdjacentText;
         private ComboBox FarmSelectCB;
+        private Button ApplyMembershipBtn;
+        private Button button1;
     }
 }
