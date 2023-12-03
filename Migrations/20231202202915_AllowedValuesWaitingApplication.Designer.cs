@@ -4,6 +4,7 @@ using Agro.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Agro.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    partial class ApplicationDBContextModelSnapshot : ModelSnapshot
+    [Migration("20231202202915_AllowedValuesWaitingApplication")]
+    partial class AllowedValuesWaitingApplication
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -208,9 +211,6 @@ namespace Agro.Migrations
                         .HasMaxLength(14)
                         .HasColumnType("nvarchar(14)");
 
-                    b.Property<DateTime?>("DateOfBirth")
-                        .HasColumnType("datetime2");
-
                     b.Property<Guid>("FK_UserPK_User")
                         .HasColumnType("uniqueidentifier");
 
@@ -352,13 +352,13 @@ namespace Agro.Migrations
             modelBuilder.Entity("Agro.Data.Models.MembershipApplication", b =>
                 {
                     b.HasOne("Agro.Data.Models.Personal", "FK_Personal")
-                        .WithMany("Applications")
+                        .WithMany()
                         .HasForeignKey("FK_PersonalPK_Personal")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Agro.Data.Models.User", "FK_UserApprover")
-                        .WithMany("Applications")
+                        .WithMany()
                         .HasForeignKey("FK_UserApproverPK_User");
 
                     b.Navigation("FK_Personal");
@@ -408,16 +408,9 @@ namespace Agro.Migrations
 
             modelBuilder.Entity("Agro.Data.Models.Personal", b =>
                 {
-                    b.Navigation("Applications");
-
                     b.Navigation("FK_PersonalAddress");
 
                     b.Navigation("Insurances");
-                });
-
-            modelBuilder.Entity("Agro.Data.Models.User", b =>
-                {
-                    b.Navigation("Applications");
                 });
 #pragma warning restore 612, 618
         }

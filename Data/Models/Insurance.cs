@@ -17,8 +17,10 @@ public class Insurance
 
     // W for waiting
     public bool Remarks { get; set; } = false;
+    [MaxLength(15)]
+    public string Status { get; set; } = "WAITING";
     public DateTime DateApplied { get; set; } = DateTime.Now;
-    
+
     [AllowNull]
     public DateTime DateModified { get; set; }
 

@@ -102,6 +102,7 @@ namespace Agro.Features.Authentication
                 if(isLoggedIn)
                 {
                     MessageBox.Show("Have a great day! We look forward to serving you :).");
+                    _mainForm.RefreshPage();
                     _mainForm.Show();
                     ParentForm.Hide();
                 }

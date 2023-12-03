@@ -32,6 +32,7 @@ public class ApplicationDBContext : DbContext
     //public DbSet<FarmCommodity> FarmCommodities { get; set; }
 
     public DbSet<Insurance> Insurances { get; set; }
+    public DbSet<MembershipApplication> MembershipApplications { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -71,7 +72,7 @@ public class ApplicationDBContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseSqlServer(ConfigurationManager.ConnectionStrings["MSITConnection"].ConnectionString);
+        optionsBuilder.UseSqlServer(ConfigurationManager.ConnectionStrings["AGROConnection"].ConnectionString);
         base.OnConfiguring(optionsBuilder);
     }
 }

@@ -17,6 +17,11 @@ namespace Agro.Features.Person
             _context = context;
         }
 
+        public void SubmitApplication(MembershipApplication submittedApplication)
+        {
+            _context.MembershipApplications.Add(submittedApplication);
+        }
+
         public Address GetPersonalAddress(int PK_Personal)
         {
             var res = _context.PersonalAddresses
@@ -34,7 +39,9 @@ namespace Agro.Features.Person
 
         public Personal GetPerson(int id)
         {
-            var person = _context.Personals.Where(person => person.PK_Personal == id).First();
+            var person = _context.Personals
+                .Where(person => person.PK_Personal == id)
+                .Single();
             return person;
         }
 
@@ -62,6 +69,77 @@ namespace Agro.Features.Person
         public void Save()
         {
            _context.SaveChanges();
+        }
+
+        public bool HasActiveApplication(int PK_Personal)
+        {
+            var res = _context.MembershipApplications
+                .Any(ma => ma.FK_Personal.PK_Personal == PK_Personal && ma.Remarks == "WAITING");
+            return res;
+        }
+
+        public IQueryable<MembershipApplication> GetAllApplicants()
+        {
+            return _context.MembershipApplications
+                .Include(application => application.FK_Personal)
+                .ThenInclude(person => person.FK_User);
+        }
+
+        public IQueryable<Personal> GetAllMembers()
+        {
+            
+            return _context.Personals
+                .Include(person => person.FK_User);
+        }
+
+        public bool UpdatePersonMembership(int PK_Personal, User technician, bool isApproved)
+        {
+           
+
+            var updateApplicant = _context.MembershipApplications
+                .Where(ma => ma.FK_Personal.PK_Personal == PK_Personal && ma.Remarks == "WAITING")
+                .Include(ma => ma.FK_Personal)
+                .Include(ma => ma.FK_UserApprover)
+                .Single();
+
+            updateApplicant.Remarks = isApproved ? "APPROVED" : "DENIED";
+            updateApplicant.FK_UserApprover = technician;
+            updateApplicant.FK_Personal.IsApproved = isApproved;
+            
+             _context.MembershipApplications.Update(updateApplicant);
+
+            var res = _context.SaveChanges();
+
+
+            //var resPerson = _context.Personals
+            //    .Where(person => person.PK_Personal == PK_Personal)
+            //    .ExecuteUpdate(p => p
+            //    .SetProperty(p => p.IsApproved, isApproved));
+
+                
+                if(res > 0)
+                    return true;
+                else
+                {
+                    return false;   
+                }
+           
+            
+        }
+
+        public bool RemoveMembership(int personID)
+        {
+            var applicant = GetPerson(personID);
+
+            applicant.IsApproved = false;
+
+            _context.Update(applicant);
+            var res = _context.SaveChanges();
+
+            if (res > 0)
+                return true;
+            else
+                return false;
         }
     }
 }

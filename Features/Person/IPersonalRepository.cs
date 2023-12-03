@@ -10,6 +10,14 @@ namespace Agro.Features.Person
     public interface IPersonalRepository
     {
         IQueryable<Personal> GetAll();
+        
+        IQueryable<MembershipApplication> GetAllApplicants();
+        
+        IQueryable<Personal> GetAllMembers();
+
+        void SubmitApplication(MembershipApplication application);
+
+        bool HasActiveApplication(int PK_Personal);
 
         void Save();
         
@@ -22,5 +30,9 @@ namespace Agro.Features.Person
         Personal RegisterPerson(Personal personal);
        
         bool SavePerson(Personal person);
+
+         bool RemoveMembership(int personID);
+
+        bool UpdatePersonMembership(int PK_Personal, User approver, bool isApproved);
     }
 }

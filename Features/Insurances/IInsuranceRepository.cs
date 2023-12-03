@@ -12,5 +12,9 @@ namespace Agro.Features.Insurances
         IEnumerable<Farm> GetOwnedFarms();
 
         IQueryable<Insurance> GetInsurance();
+
+        bool HasExistingApplication(Personal personData);
+
+        void AddInsurance(Insurance insurance);
     }
 }

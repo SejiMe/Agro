@@ -44,11 +44,17 @@ public class Personal
     [AllowNull, MaxLength(14)]
     public string? ContactNumber { get; set; }
 
+    
+    public DateTime? DateOfBirth { get; set; }
+
+
     [Column("FK_User")]
     public User FK_User { get; set; }
 
     // This person can have as many insurance they can have
     public ICollection<Insurance> Insurances { get; set; }
+
+    public ICollection<MembershipApplication> Applications { get; set; }
 
     // Personal Class can have more than 1 assigned address but will pick the first one
     public ICollection<PersonalAddress> FK_PersonalAddress { get; set; }

@@ -53,6 +53,7 @@ namespace Agro
             services.AddSingleton<GeneralNavigation>();
             services.AddScoped<InsuranceProfileController>();
             services.AddScoped<MemberProfileController>();
+            services.AddTransient<ListMembershipController>();
 
             // Forms
             services.AddTransient<AddressForm>();

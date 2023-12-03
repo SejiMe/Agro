@@ -34,4 +34,6 @@ public class User
     [MaxLength(25)]
     public string Role { get; set; }
 
+    public ICollection<MembershipApplication> Applications { get; set; }
+
 }

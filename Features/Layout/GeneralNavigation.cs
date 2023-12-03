@@ -1,4 +1,6 @@
-﻿using Agro.Features.Authentication;
+﻿using Agro.Data.Models;
+using Agro.Features.Authentication;
+using Agro.Features.Person;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,40 +16,66 @@ namespace Agro.Features.Layout
     public partial class GeneralNavigation : UserControl
     {
         private readonly IAuthenticationRepository _authenticationRepository;
+        private readonly IPersonalRepository _personalRepository;
+
+        Personal _personData;
         AuthenticationDTO _authenticationDTO;
 
-        public GeneralNavigation(IAuthenticationRepository authenticationRepository)
+        public GeneralNavigation(IAuthenticationRepository authenticationRepository, IPersonalRepository personalRepository)
         {
+            _personalRepository = personalRepository;
             _authenticationRepository = authenticationRepository;
-            
+
             InitializeComponent();
-            
+
         }
 
         private void GeneralNavigation_Load(object sender, EventArgs e)
         {
             _authenticationDTO = _authenticationRepository.GetAuthenticationDetails();
+            _personData = _personalRepository.GetPerson(_authenticationDTO.PK_Personal);
+
+
+
+            if (_authenticationDTO.role != "TECHNICIAN")
+            {
+                ApplyMembershipBtn.Text = "Apply Membership";
+                CropInsuranceBtn.Text = "Apply Insurance";
+                if (!_personData.IsApproved)
+                    CropInsuranceBtn.Visible = false;
+                else
+                    CropInsuranceBtn.Visible = true;
+            }else
+            {
+                ApplyMembershipBtn.Text = "View Members";
+                CropInsuranceBtn.Text = "View Insurances";
+                CropInsuranceBtn.Visible = true;
+            }
         }
 
+       public void RefreshController() 
+        {
+            this.OnLoad(EventArgs.Empty);
+        }
 
         private void ApplyMembershipBtn_Click(object sender, EventArgs e)
         {
-            if(_authenticationDTO == null)
+            if (_authenticationDTO == null)
                 return;
-            
 
-            if(_authenticationDTO.role == "TECHNICIAN")
+
+            if (_authenticationDTO.role == "TECHNICIAN")
             {
-                ParentForm.Controls["HeaderPanel"].Controls["TitleLabel"].Text = "Membership";
+                ParentForm.Controls["HeaderPanel"].Controls["TitleLabel"].Text = "Members";
                 ParentForm.Controls["ControllerPanel"].Controls["ListMembershipController"].BringToFront();
-            }else
+            }
+            else
             {
                 ParentForm.Controls["HeaderPanel"].Controls["TitleLabel"].Text = "Membership";
                 ParentForm.Controls["ControllerPanel"].Controls["MemberProfileController"].BringToFront();
             }
-
-            
         }
+        
 
         private void CropInsuranceBtn_Click(object sender, EventArgs e)
         {
@@ -60,7 +88,8 @@ namespace Agro.Features.Layout
 
                 //ParentForm.Controls["HeaderPanel"].Controls["TitleLabel"].Text = "Membership";
                 //ParentForm.Controls["ControllerPanel"].Controls["ListMembershipController"].BringToFront();
-            }else
+            }
+            else
             {
 
                 ParentForm.Controls["HeaderPanel"].Controls["TitleLabel"].Text = "Insurance";
@@ -69,6 +98,9 @@ namespace Agro.Features.Layout
 
         }
 
-       
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

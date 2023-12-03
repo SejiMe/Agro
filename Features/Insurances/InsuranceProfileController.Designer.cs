@@ -39,11 +39,11 @@
             label1 = new Label();
             FirstNameText = new TextBox();
             label5 = new Label();
-            textBox5 = new TextBox();
+            ContactNumberText = new TextBox();
             textBox6 = new TextBox();
             label6 = new Label();
-            dateTimePicker1 = new DateTimePicker();
-            comboBox1 = new ComboBox();
+            DateTime = new DateTimePicker();
+            GenderCBText = new ComboBox();
             label7 = new Label();
             groupBox2 = new GroupBox();
             FarmSelectCB = new ComboBox();
@@ -60,8 +60,8 @@
             EastAdjacentText = new TextBox();
             SouthAdjacentText = new TextBox();
             NorthAdjacentText = new TextBox();
-            ApplyMembershipBtn = new Button();
-            button1 = new Button();
+            UpdateBtn = new Button();
+            SubmitBtn = new Button();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
@@ -98,6 +98,7 @@
             // 
             // SuffixText
             // 
+            SuffixText.Enabled = false;
             SuffixText.Location = new Point(769, 53);
             SuffixText.MinimumSize = new Size(0, 30);
             SuffixText.Name = "SuffixText";
@@ -116,6 +117,7 @@
             // 
             // LastNameText
             // 
+            LastNameText.Enabled = false;
             LastNameText.Location = new Point(505, 53);
             LastNameText.MaximumSize = new Size(250, 0);
             LastNameText.MinimumSize = new Size(0, 30);
@@ -135,6 +137,7 @@
             // 
             // MiddleNameText
             // 
+            MiddleNameText.Enabled = false;
             MiddleNameText.Location = new Point(274, 53);
             MiddleNameText.MaximumSize = new Size(250, 0);
             MiddleNameText.MinimumSize = new Size(0, 30);
@@ -154,6 +157,7 @@
             // 
             // FirstNameText
             // 
+            FirstNameText.Enabled = false;
             FirstNameText.Location = new Point(6, 53);
             FirstNameText.MaximumSize = new Size(250, 0);
             FirstNameText.MinimumSize = new Size(0, 30);
@@ -172,18 +176,20 @@
             label5.TabIndex = 1;
             label5.Text = "Contact Number";
             // 
-            // textBox5
+            // ContactNumberText
             // 
-            textBox5.Anchor = AnchorStyles.Top;
-            textBox5.Location = new Point(83, 223);
-            textBox5.Name = "textBox5";
-            textBox5.PlaceholderText = "09123456789";
-            textBox5.Size = new Size(206, 23);
-            textBox5.TabIndex = 2;
+            ContactNumberText.Anchor = AnchorStyles.Top;
+            ContactNumberText.Enabled = false;
+            ContactNumberText.Location = new Point(83, 223);
+            ContactNumberText.Name = "ContactNumberText";
+            ContactNumberText.PlaceholderText = "09123456789";
+            ContactNumberText.Size = new Size(206, 23);
+            ContactNumberText.TabIndex = 2;
             // 
             // textBox6
             // 
             textBox6.Anchor = AnchorStyles.Top;
+            textBox6.Enabled = false;
             textBox6.Location = new Point(38, 223);
             textBox6.Name = "textBox6";
             textBox6.ReadOnly = true;
@@ -201,27 +207,29 @@
             label6.TabIndex = 4;
             label6.Text = "Date of Birth";
             // 
-            // dateTimePicker1
+            // DateTime
             // 
-            dateTimePicker1.Anchor = AnchorStyles.Top;
-            dateTimePicker1.Format = DateTimePickerFormat.Short;
-            dateTimePicker1.Location = new Point(339, 223);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(261, 23);
-            dateTimePicker1.TabIndex = 6;
-            dateTimePicker1.Value = new DateTime(2023, 11, 27, 0, 0, 0, 0);
+            DateTime.Anchor = AnchorStyles.Top;
+            DateTime.Enabled = false;
+            DateTime.Format = DateTimePickerFormat.Short;
+            DateTime.Location = new Point(339, 223);
+            DateTime.Name = "DateTime";
+            DateTime.Size = new Size(261, 23);
+            DateTime.TabIndex = 6;
+            DateTime.Value = new DateTime(2023, 11, 27, 0, 0, 0, 0);
             // 
-            // comboBox1
+            // GenderCBText
             // 
-            comboBox1.Anchor = AnchorStyles.Top;
-            comboBox1.DropDownWidth = 120;
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "Male", "Female" });
-            comboBox1.Location = new Point(655, 223);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(226, 23);
-            comboBox1.TabIndex = 7;
-            InfoToolTip.SetToolTip(comboBox1, "Addd");
+            GenderCBText.Anchor = AnchorStyles.Top;
+            GenderCBText.DropDownWidth = 120;
+            GenderCBText.Enabled = false;
+            GenderCBText.FormattingEnabled = true;
+            GenderCBText.Items.AddRange(new object[] { "Male", "Female" });
+            GenderCBText.Location = new Point(655, 223);
+            GenderCBText.Name = "GenderCBText";
+            GenderCBText.Size = new Size(226, 23);
+            GenderCBText.TabIndex = 7;
+            InfoToolTip.SetToolTip(GenderCBText, "Addd");
             // 
             // label7
             // 
@@ -265,6 +273,7 @@
             TenurialStatusText.Location = new Point(467, 75);
             TenurialStatusText.Name = "TenurialStatusText";
             TenurialStatusText.PlaceholderText = "Tenurial";
+            TenurialStatusText.ReadOnly = true;
             TenurialStatusText.Size = new Size(278, 23);
             TenurialStatusText.TabIndex = 15;
             // 
@@ -273,6 +282,7 @@
             LandSoilText.Location = new Point(124, 74);
             LandSoilText.Name = "LandSoilText";
             LandSoilText.PlaceholderText = "Land Category / Soil Type";
+            LandSoilText.ReadOnly = true;
             LandSoilText.Size = new Size(324, 23);
             LandSoilText.TabIndex = 14;
             // 
@@ -281,6 +291,7 @@
             AreaSqmText.Location = new Point(467, 46);
             AreaSqmText.Name = "AreaSqmText";
             AreaSqmText.PlaceholderText = "Area in sqm";
+            AreaSqmText.ReadOnly = true;
             AreaSqmText.Size = new Size(278, 23);
             AreaSqmText.TabIndex = 13;
             // 
@@ -296,15 +307,17 @@
             // 
             // FarmAddressText
             // 
-            FarmAddressText.Location = new Point(124, 45);
+            FarmAddressText.Location = new Point(125, 45);
             FarmAddressText.Name = "FarmAddressText";
             FarmAddressText.PlaceholderText = "Farm Location";
+            FarmAddressText.ReadOnly = true;
             FarmAddressText.Size = new Size(324, 23);
             FarmAddressText.TabIndex = 0;
             // 
             // CurrentAddressText
             // 
             CurrentAddressText.Anchor = AnchorStyles.Top;
+            CurrentAddressText.Enabled = false;
             CurrentAddressText.Location = new Point(44, 275);
             CurrentAddressText.Name = "CurrentAddressText";
             CurrentAddressText.PlaceholderText = "Current Address";
@@ -348,6 +361,7 @@
             WestAdjacentText.Location = new Point(124, 112);
             WestAdjacentText.Name = "WestAdjacentText";
             WestAdjacentText.PlaceholderText = "West";
+            WestAdjacentText.ReadOnly = true;
             WestAdjacentText.Size = new Size(637, 23);
             WestAdjacentText.TabIndex = 18;
             // 
@@ -356,6 +370,7 @@
             EastAdjacentText.Location = new Point(124, 83);
             EastAdjacentText.Name = "EastAdjacentText";
             EastAdjacentText.PlaceholderText = "East";
+            EastAdjacentText.ReadOnly = true;
             EastAdjacentText.Size = new Size(637, 23);
             EastAdjacentText.TabIndex = 17;
             // 
@@ -364,6 +379,7 @@
             SouthAdjacentText.Location = new Point(124, 54);
             SouthAdjacentText.Name = "SouthAdjacentText";
             SouthAdjacentText.PlaceholderText = "South";
+            SouthAdjacentText.ReadOnly = true;
             SouthAdjacentText.Size = new Size(637, 23);
             SouthAdjacentText.TabIndex = 16;
             // 
@@ -372,50 +388,54 @@
             NorthAdjacentText.Location = new Point(124, 25);
             NorthAdjacentText.Name = "NorthAdjacentText";
             NorthAdjacentText.PlaceholderText = "North";
+            NorthAdjacentText.ReadOnly = true;
             NorthAdjacentText.Size = new Size(637, 23);
             NorthAdjacentText.TabIndex = 15;
             // 
-            // ApplyMembershipBtn
+            // UpdateBtn
             // 
-            ApplyMembershipBtn.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            ApplyMembershipBtn.BackColor = Color.LimeGreen;
-            ApplyMembershipBtn.Font = new Font("Segoe UI", 12F);
-            ApplyMembershipBtn.Location = new Point(38, 25);
-            ApplyMembershipBtn.Name = "ApplyMembershipBtn";
-            ApplyMembershipBtn.Size = new Size(130, 37);
-            ApplyMembershipBtn.TabIndex = 13;
-            ApplyMembershipBtn.Text = "Update";
-            ApplyMembershipBtn.UseVisualStyleBackColor = false;
+            UpdateBtn.Anchor = AnchorStyles.Top;
+            UpdateBtn.BackColor = Color.LimeGreen;
+            UpdateBtn.Font = new Font("Segoe UI", 12F);
+            UpdateBtn.Location = new Point(38, 25);
+            UpdateBtn.Name = "UpdateBtn";
+            UpdateBtn.Size = new Size(130, 37);
+            UpdateBtn.TabIndex = 13;
+            UpdateBtn.Text = "Update";
+            UpdateBtn.UseVisualStyleBackColor = false;
+            UpdateBtn.Click += UpdateBtn_Click;
             // 
-            // button1
+            // SubmitBtn
             // 
-            button1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            button1.BackColor = Color.LimeGreen;
-            button1.Font = new Font("Segoe UI", 12F);
-            button1.Location = new Point(728, 25);
-            button1.Name = "button1";
-            button1.Size = new Size(153, 37);
-            button1.TabIndex = 14;
-            button1.Text = "Submit Application";
-            button1.UseVisualStyleBackColor = false;
+            SubmitBtn.Anchor = AnchorStyles.Top;
+            SubmitBtn.BackColor = Color.LimeGreen;
+            SubmitBtn.Enabled = false;
+            SubmitBtn.Font = new Font("Segoe UI", 12F);
+            SubmitBtn.Location = new Point(728, 25);
+            SubmitBtn.Name = "SubmitBtn";
+            SubmitBtn.Size = new Size(153, 37);
+            SubmitBtn.TabIndex = 14;
+            SubmitBtn.Text = "Submit Application";
+            SubmitBtn.UseVisualStyleBackColor = false;
+            SubmitBtn.Click += SubmitBtn_Click;
             // 
             // InsuranceProfileController
             // 
             AccessibleDescription = "";
             AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
-            Controls.Add(button1);
-            Controls.Add(ApplyMembershipBtn);
+            Controls.Add(SubmitBtn);
+            Controls.Add(UpdateBtn);
             Controls.Add(groupBox3);
             Controls.Add(label8);
             Controls.Add(CurrentAddressText);
             Controls.Add(groupBox2);
             Controls.Add(label7);
-            Controls.Add(comboBox1);
-            Controls.Add(dateTimePicker1);
+            Controls.Add(GenderCBText);
+            Controls.Add(DateTime);
             Controls.Add(label6);
             Controls.Add(textBox6);
-            Controls.Add(textBox5);
+            Controls.Add(ContactNumberText);
             Controls.Add(label5);
             Controls.Add(groupBox1);
             Name = "InsuranceProfileController";
@@ -445,11 +465,11 @@
         private Label label1;
         private TextBox FirstNameText;
         private Label label5;
-        private TextBox textBox5;
+        private TextBox ContactNumberText;
         private TextBox textBox6;
         private Label label6;
-        private DateTimePicker dateTimePicker1;
-        private ComboBox comboBox1;
+        private DateTimePicker DateTime;
+        private ComboBox GenderCBText;
         private Label label7;
         private GroupBox groupBox2;
         private TextBox CurrentAddressText;
@@ -466,7 +486,7 @@
         private TextBox SouthAdjacentText;
         private TextBox NorthAdjacentText;
         private ComboBox FarmSelectCB;
-        private Button ApplyMembershipBtn;
-        private Button button1;
+        private Button UpdateBtn;
+        private Button SubmitBtn;
     }
 }

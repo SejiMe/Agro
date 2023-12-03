@@ -37,9 +37,9 @@
             RiceAddressText = new TextBox();
             label7 = new Label();
             GenderCB = new ComboBox();
-            DateTimePicker = new DateTimePicker();
+            DateOfBirth = new DateTimePicker();
             label6 = new Label();
-            textBox6 = new TextBox();
+            AreaCodeText = new TextBox();
             ContactNumberText = new TextBox();
             label5 = new Label();
             groupBox1 = new GroupBox();
@@ -65,6 +65,7 @@
             label10 = new Label();
             AssociationText = new TextBox();
             UpdateBtn = new Button();
+            SubmitBtn = new Button();
             groupBox2.SuspendLayout();
             groupBox1.SuspendLayout();
             groupBox3.SuspendLayout();
@@ -167,43 +168,43 @@
             GenderCB.Size = new Size(226, 23);
             GenderCB.TabIndex = 20;
             // 
-            // DateTimePicker
+            // DateOfBirth
             // 
-            DateTimePicker.Anchor = AnchorStyles.Top;
-            DateTimePicker.Enabled = false;
-            DateTimePicker.Format = DateTimePickerFormat.Short;
-            DateTimePicker.Location = new Point(373, 214);
-            DateTimePicker.Name = "DateTimePicker";
-            DateTimePicker.Size = new Size(310, 23);
-            DateTimePicker.TabIndex = 19;
-            DateTimePicker.Value = new DateTime(2023, 11, 27, 0, 0, 0, 0);
+            DateOfBirth.Anchor = AnchorStyles.Top;
+            DateOfBirth.Enabled = false;
+            DateOfBirth.Format = DateTimePickerFormat.Short;
+            DateOfBirth.Location = new Point(373, 214);
+            DateOfBirth.Name = "DateOfBirth";
+            DateOfBirth.Size = new Size(310, 23);
+            DateOfBirth.TabIndex = 19;
+            DateOfBirth.Value = new DateTime(2001, 8, 5, 0, 0, 0, 0);
             // 
             // label6
             // 
             label6.Anchor = AnchorStyles.Top;
             label6.AutoSize = true;
-            label6.Location = new Point(420, 196);
+            label6.Location = new Point(377, 196);
             label6.Name = "label6";
             label6.Size = new Size(73, 15);
             label6.TabIndex = 18;
             label6.Text = "Date of Birth";
             // 
-            // textBox6
+            // AreaCodeText
             // 
-            textBox6.Anchor = AnchorStyles.Top;
-            textBox6.Location = new Point(72, 214);
-            textBox6.Name = "textBox6";
-            textBox6.ReadOnly = true;
-            textBox6.Size = new Size(39, 23);
-            textBox6.TabIndex = 17;
-            textBox6.Text = "+63";
+            AreaCodeText.Anchor = AnchorStyles.Top;
+            AreaCodeText.Location = new Point(72, 214);
+            AreaCodeText.Name = "AreaCodeText";
+            AreaCodeText.ReadOnly = true;
+            AreaCodeText.Size = new Size(39, 23);
+            AreaCodeText.TabIndex = 17;
+            AreaCodeText.Text = "+63";
             // 
             // ContactNumberText
             // 
             ContactNumberText.Anchor = AnchorStyles.Top;
             ContactNumberText.Location = new Point(117, 214);
             ContactNumberText.Name = "ContactNumberText";
-            ContactNumberText.PlaceholderText = "09123456789";
+            ContactNumberText.PlaceholderText = "9153456789";
             ContactNumberText.ReadOnly = true;
             ContactNumberText.Size = new Size(250, 23);
             ContactNumberText.TabIndex = 16;
@@ -249,6 +250,7 @@
             // 
             // SuffixText
             // 
+            SuffixText.Anchor = AnchorStyles.None;
             SuffixText.Location = new Point(769, 53);
             SuffixText.MinimumSize = new Size(0, 30);
             SuffixText.Name = "SuffixText";
@@ -258,6 +260,7 @@
             // 
             // label3
             // 
+            label3.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label3.AutoSize = true;
             label3.Location = new Point(505, 29);
             label3.Name = "label3";
@@ -267,6 +270,7 @@
             // 
             // LastNameText
             // 
+            LastNameText.Anchor = AnchorStyles.None;
             LastNameText.Location = new Point(505, 53);
             LastNameText.MaximumSize = new Size(250, 0);
             LastNameText.MinimumSize = new Size(0, 30);
@@ -277,6 +281,7 @@
             // 
             // label2
             // 
+            label2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label2.AutoSize = true;
             label2.Location = new Point(274, 29);
             label2.Name = "label2";
@@ -286,6 +291,7 @@
             // 
             // MiddleNameText
             // 
+            MiddleNameText.Anchor = AnchorStyles.None;
             MiddleNameText.Location = new Point(274, 53);
             MiddleNameText.MaximumSize = new Size(250, 0);
             MiddleNameText.MinimumSize = new Size(0, 30);
@@ -306,6 +312,7 @@
             // 
             // FirstNameText
             // 
+            FirstNameText.Anchor = AnchorStyles.None;
             FirstNameText.Location = new Point(6, 53);
             FirstNameText.MaximumSize = new Size(250, 0);
             FirstNameText.MinimumSize = new Size(0, 30);
@@ -448,10 +455,11 @@
             // 
             // UpdateBtn
             // 
-            UpdateBtn.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            UpdateBtn.Anchor = AnchorStyles.Top;
             UpdateBtn.BackColor = Color.LimeGreen;
             UpdateBtn.Font = new Font("Segoe UI", 12F);
-            UpdateBtn.Location = new Point(66, 21);
+            UpdateBtn.ForeColor = Color.Black;
+            UpdateBtn.Location = new Point(66, 26);
             UpdateBtn.Name = "UpdateBtn";
             UpdateBtn.Size = new Size(130, 37);
             UpdateBtn.TabIndex = 31;
@@ -459,10 +467,26 @@
             UpdateBtn.UseVisualStyleBackColor = false;
             UpdateBtn.Click += UpdateBtn_Click;
             // 
+            // SubmitBtn
+            // 
+            SubmitBtn.Anchor = AnchorStyles.Top;
+            SubmitBtn.BackColor = Color.LimeGreen;
+            SubmitBtn.Font = new Font("Segoe UI", 12F);
+            SubmitBtn.ForeColor = Color.Black;
+            SubmitBtn.Location = new Point(735, 26);
+            SubmitBtn.Name = "SubmitBtn";
+            SubmitBtn.Size = new Size(179, 37);
+            SubmitBtn.TabIndex = 32;
+            SubmitBtn.Text = "Submit Application";
+            SubmitBtn.UseVisualStyleBackColor = false;
+            SubmitBtn.Visible = false;
+            SubmitBtn.Click += SubmitBtn_Click;
+            // 
             // MemberProfileController
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(SubmitBtn);
             Controls.Add(UpdateBtn);
             Controls.Add(label10);
             Controls.Add(AssociationText);
@@ -476,14 +500,14 @@
             Controls.Add(groupBox2);
             Controls.Add(label7);
             Controls.Add(GenderCB);
-            Controls.Add(DateTimePicker);
+            Controls.Add(DateOfBirth);
             Controls.Add(label6);
-            Controls.Add(textBox6);
+            Controls.Add(AreaCodeText);
             Controls.Add(ContactNumberText);
             Controls.Add(label5);
             Controls.Add(groupBox1);
             Name = "MemberProfileController";
-            Size = new Size(980, 635);
+            Size = new Size(980, 644);
             Load += ProfileController_Load;
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
@@ -507,9 +531,9 @@
         private TextBox RiceAddressText;
         private Label label7;
         private ComboBox GenderCB;
-        private DateTimePicker DateTimePicker;
+        private DateTimePicker DateOfBirth;
         private Label label6;
-        private TextBox textBox6;
+        private TextBox AreaCodeText;
         private TextBox ContactNumberText;
         private Label label5;
         private GroupBox groupBox1;
@@ -535,5 +559,6 @@
         private Label label10;
         private TextBox AssociationText;
         private Button UpdateBtn;
+        private Button SubmitBtn;
     }
 }

@@ -87,6 +87,7 @@
             LogOutBtn.TabIndex = 2;
             LogOutBtn.Text = "Log Out";
             LogOutBtn.UseVisualStyleBackColor = true;
+            LogOutBtn.Click += LogOutBtn_Click;
             // 
             // FullNameLabel
             // 
@@ -159,6 +160,7 @@
             // ControllerPanel
             // 
             ControllerPanel.BackColor = Color.SeaGreen;
+            ControllerPanel.BorderStyle = BorderStyle.FixedSingle;
             ControllerPanel.Dock = DockStyle.Fill;
             ControllerPanel.Location = new Point(203, 100);
             ControllerPanel.Name = "ControllerPanel";
@@ -170,6 +172,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoSize = true;
             ClientSize = new Size(800, 450);
             ControlBox = false;
             Controls.Add(ControllerPanel);

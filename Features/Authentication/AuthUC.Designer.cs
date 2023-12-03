@@ -178,7 +178,7 @@
 
         private Label label5;
         private LinkLabel SignUpLink;
-        private Label label1;
+        
         private Label BackLabel;
         private GroupBox groupBox1;
         private TextBox PasswordText;
