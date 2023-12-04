@@ -28,68 +28,81 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            RemoveMemberBtn = new Button();
-            DeclineMembershipBtn = new Button();
-            ApproveMemberBtn = new Button();
+            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle11 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle12 = new DataGridViewCellStyle();
+            InactiveInsuranceBtn = new Button();
+            DeclineInsuranceBtn = new Button();
+            ApproveInsuranceBtn = new Button();
             ApplyFilterBtn = new Button();
             SearchBtn = new Button();
             FilterSelectorCB = new ComboBox();
             SearchText = new TextBox();
             MembersDataGrid = new DataGridView();
-            PersonalIDCol = new DataGridViewTextBoxColumn();
+            InsuranceID = new DataGridViewTextBoxColumn();
+            FarmID = new DataGridViewTextBoxColumn();
             RemarksCol = new DataGridViewCheckBoxColumn();
-            Status = new DataGridViewTextBoxColumn();
+            StatusCol = new DataGridViewTextBoxColumn();
             FullNameCol = new DataGridViewTextBoxColumn();
             RoleCol = new DataGridViewTextBoxColumn();
+            CommodityCol = new DataGridViewTextBoxColumn();
+            SqmCol = new DataGridViewTextBoxColumn();
+            LocationCol = new DataGridViewTextBoxColumn();
+            isHVCDP = new DataGridViewCheckBoxColumn();
+            TenurialCol = new DataGridViewTextBoxColumn();
+            LandCategorySoilTypeCol = new DataGridViewTextBoxColumn();
             ContactNumberCol = new DataGridViewTextBoxColumn();
-            DOBCol = new DataGridViewTextBoxColumn();
             DateAppliedCol = new DataGridViewTextBoxColumn();
+            NorthAdjacentCol = new DataGridViewTextBoxColumn();
+            SouthAdjacentCol = new DataGridViewTextBoxColumn();
+            EastAdjacentCol = new DataGridViewTextBoxColumn();
+            WestAdjacentCol = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)MembersDataGrid).BeginInit();
             SuspendLayout();
             // 
-            // RemoveMemberBtn
+            // InactiveInsuranceBtn
             // 
-            RemoveMemberBtn.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            RemoveMemberBtn.BackColor = Color.LimeGreen;
-            RemoveMemberBtn.Font = new Font("Segoe UI", 12F);
-            RemoveMemberBtn.ForeColor = Color.Black;
-            RemoveMemberBtn.Location = new Point(31, 478);
-            RemoveMemberBtn.Name = "RemoveMemberBtn";
-            RemoveMemberBtn.Size = new Size(184, 42);
-            RemoveMemberBtn.TabIndex = 44;
-            RemoveMemberBtn.Text = "Remove Member";
-            RemoveMemberBtn.UseVisualStyleBackColor = false;
+            InactiveInsuranceBtn.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            InactiveInsuranceBtn.BackColor = Color.LimeGreen;
+            InactiveInsuranceBtn.Font = new Font("Segoe UI", 12F);
+            InactiveInsuranceBtn.ForeColor = Color.Black;
+            InactiveInsuranceBtn.Location = new Point(31, 478);
+            InactiveInsuranceBtn.Name = "InactiveInsuranceBtn";
+            InactiveInsuranceBtn.Size = new Size(184, 42);
+            InactiveInsuranceBtn.TabIndex = 44;
+            InactiveInsuranceBtn.Text = "Inactive Insurance";
+            InactiveInsuranceBtn.UseVisualStyleBackColor = false;
+            InactiveInsuranceBtn.Click += InactiveInsuranceBtn_Click;
             // 
-            // DeclineMembershipBtn
+            // DeclineInsuranceBtn
             // 
-            DeclineMembershipBtn.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            DeclineMembershipBtn.BackColor = Color.LimeGreen;
-            DeclineMembershipBtn.Font = new Font("Segoe UI", 12F);
-            DeclineMembershipBtn.ForeColor = Color.Black;
-            DeclineMembershipBtn.Location = new Point(548, 478);
-            DeclineMembershipBtn.Name = "DeclineMembershipBtn";
-            DeclineMembershipBtn.Size = new Size(184, 42);
-            DeclineMembershipBtn.TabIndex = 43;
-            DeclineMembershipBtn.Text = "Decline Membership";
-            DeclineMembershipBtn.UseVisualStyleBackColor = false;
-            DeclineMembershipBtn.Visible = false;
+            DeclineInsuranceBtn.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            DeclineInsuranceBtn.BackColor = Color.LimeGreen;
+            DeclineInsuranceBtn.Font = new Font("Segoe UI", 12F);
+            DeclineInsuranceBtn.ForeColor = Color.Black;
+            DeclineInsuranceBtn.Location = new Point(548, 478);
+            DeclineInsuranceBtn.Name = "DeclineInsuranceBtn";
+            DeclineInsuranceBtn.Size = new Size(184, 42);
+            DeclineInsuranceBtn.TabIndex = 43;
+            DeclineInsuranceBtn.Text = "Decline Insurance";
+            DeclineInsuranceBtn.UseVisualStyleBackColor = false;
+            DeclineInsuranceBtn.Visible = false;
+            DeclineInsuranceBtn.Click += DeclineInsuranceBtn_Click;
             // 
-            // ApproveMemberBtn
+            // ApproveInsuranceBtn
             // 
-            ApproveMemberBtn.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            ApproveMemberBtn.BackColor = Color.LimeGreen;
-            ApproveMemberBtn.Font = new Font("Segoe UI", 12F);
-            ApproveMemberBtn.ForeColor = Color.Black;
-            ApproveMemberBtn.Location = new Point(738, 478);
-            ApproveMemberBtn.Name = "ApproveMemberBtn";
-            ApproveMemberBtn.Size = new Size(184, 42);
-            ApproveMemberBtn.TabIndex = 42;
-            ApproveMemberBtn.Text = "Approve Membership";
-            ApproveMemberBtn.UseVisualStyleBackColor = false;
-            ApproveMemberBtn.Visible = false;
+            ApproveInsuranceBtn.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            ApproveInsuranceBtn.BackColor = Color.LimeGreen;
+            ApproveInsuranceBtn.Font = new Font("Segoe UI", 12F);
+            ApproveInsuranceBtn.ForeColor = Color.Black;
+            ApproveInsuranceBtn.Location = new Point(738, 478);
+            ApproveInsuranceBtn.Name = "ApproveInsuranceBtn";
+            ApproveInsuranceBtn.Size = new Size(184, 42);
+            ApproveInsuranceBtn.TabIndex = 42;
+            ApproveInsuranceBtn.Text = "Approve Insurance";
+            ApproveInsuranceBtn.UseVisualStyleBackColor = false;
+            ApproveInsuranceBtn.Visible = false;
+            ApproveInsuranceBtn.Click += ApproveInsuranceBtn_Click;
             // 
             // ApplyFilterBtn
             // 
@@ -103,6 +116,7 @@
             ApplyFilterBtn.TabIndex = 41;
             ApplyFilterBtn.Text = "Apply Filter";
             ApplyFilterBtn.UseVisualStyleBackColor = false;
+            ApplyFilterBtn.Click += ApplyFilterBtn_Click;
             // 
             // SearchBtn
             // 
@@ -116,12 +130,13 @@
             SearchBtn.TabIndex = 40;
             SearchBtn.Text = "Search";
             SearchBtn.UseVisualStyleBackColor = false;
+            SearchBtn.Click += SearchBtn_Click;
             // 
             // FilterSelectorCB
             // 
             FilterSelectorCB.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             FilterSelectorCB.FormattingEnabled = true;
-            FilterSelectorCB.Items.AddRange(new object[] { "APPLICANTS", "MEMBERS" });
+            FilterSelectorCB.Items.AddRange(new object[] { "APPLICANTS", "ACTIVE", "INACTIVE" });
             FilterSelectorCB.Location = new Point(657, 66);
             FilterSelectorCB.Name = "FilterSelectorCB";
             FilterSelectorCB.Size = new Size(138, 23);
@@ -143,66 +158,71 @@
             MembersDataGrid.BackgroundColor = Color.MediumSeaGreen;
             MembersDataGrid.CellBorderStyle = DataGridViewCellBorderStyle.SunkenVertical;
             MembersDataGrid.ClipboardCopyMode = DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = SystemColors.Control;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            MembersDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.BackColor = SystemColors.Control;
+            dataGridViewCellStyle10.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle10.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle10.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = DataGridViewTriState.True;
+            MembersDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             MembersDataGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            MembersDataGrid.Columns.AddRange(new DataGridViewColumn[] { PersonalIDCol, RemarksCol, Status, FullNameCol, RoleCol, ContactNumberCol, DOBCol, DateAppliedCol });
+            MembersDataGrid.Columns.AddRange(new DataGridViewColumn[] { InsuranceID, FarmID, RemarksCol, StatusCol, FullNameCol, RoleCol, CommodityCol, SqmCol, LocationCol, isHVCDP, TenurialCol, LandCategorySoilTypeCol, ContactNumberCol, DateAppliedCol, NorthAdjacentCol, SouthAdjacentCol, EastAdjacentCol, WestAdjacentCol });
             MembersDataGrid.GridColor = Color.Green;
             MembersDataGrid.Location = new Point(31, 103);
             MembersDataGrid.MultiSelect = false;
             MembersDataGrid.Name = "MembersDataGrid";
             MembersDataGrid.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = SystemColors.Control;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            MembersDataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle11.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle11.BackColor = SystemColors.Control;
+            dataGridViewCellStyle11.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle11.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle11.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = DataGridViewTriState.True;
+            MembersDataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
             MembersDataGrid.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
-            dataGridViewCellStyle3.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle3.ForeColor = Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(192, 255, 192);
-            dataGridViewCellStyle3.SelectionForeColor = Color.Black;
-            MembersDataGrid.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle12.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle12.ForeColor = Color.Black;
+            dataGridViewCellStyle12.SelectionBackColor = Color.FromArgb(192, 255, 192);
+            dataGridViewCellStyle12.SelectionForeColor = Color.Black;
+            MembersDataGrid.RowsDefaultCellStyle = dataGridViewCellStyle12;
             MembersDataGrid.RowTemplate.DividerHeight = 2;
             MembersDataGrid.RowTemplate.Resizable = DataGridViewTriState.False;
             MembersDataGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             MembersDataGrid.Size = new Size(891, 359);
             MembersDataGrid.TabIndex = 37;
             // 
-            // PersonalIDCol
+            // InsuranceID
             // 
-            PersonalIDCol.Frozen = true;
-            PersonalIDCol.HeaderText = "PersonalID";
-            PersonalIDCol.Name = "PersonalIDCol";
-            PersonalIDCol.ReadOnly = true;
-            PersonalIDCol.Visible = false;
+            InsuranceID.HeaderText = "InsuranceID";
+            InsuranceID.Name = "InsuranceID";
+            InsuranceID.ReadOnly = true;
+            InsuranceID.Visible = false;
+            // 
+            // FarmID
+            // 
+            FarmID.HeaderText = "FarmID";
+            FarmID.Name = "FarmID";
+            FarmID.ReadOnly = true;
+            FarmID.Visible = false;
             // 
             // RemarksCol
             // 
             RemarksCol.AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
-            RemarksCol.Frozen = true;
             RemarksCol.HeaderText = "Remarks";
             RemarksCol.Name = "RemarksCol";
             RemarksCol.Width = 58;
             // 
-            // Status
+            // StatusCol
             // 
-            Status.HeaderText = "Status";
-            Status.Name = "Status";
-            Status.ReadOnly = true;
+            StatusCol.HeaderText = "Status";
+            StatusCol.Name = "StatusCol";
+            StatusCol.ReadOnly = true;
             // 
             // FullNameCol
             // 
-            FullNameCol.HeaderText = "Full Name";
+            FullNameCol.HeaderText = "Owner";
             FullNameCol.Name = "FullNameCol";
             FullNameCol.ReadOnly = true;
             FullNameCol.Resizable = DataGridViewTriState.False;
@@ -213,6 +233,42 @@
             RoleCol.Name = "RoleCol";
             RoleCol.ReadOnly = true;
             // 
+            // CommodityCol
+            // 
+            CommodityCol.HeaderText = "Commodity";
+            CommodityCol.Name = "CommodityCol";
+            CommodityCol.ReadOnly = true;
+            // 
+            // SqmCol
+            // 
+            SqmCol.HeaderText = "Square Meters";
+            SqmCol.Name = "SqmCol";
+            SqmCol.ReadOnly = true;
+            // 
+            // LocationCol
+            // 
+            LocationCol.HeaderText = "Location";
+            LocationCol.Name = "LocationCol";
+            LocationCol.ReadOnly = true;
+            // 
+            // isHVCDP
+            // 
+            isHVCDP.HeaderText = "HVCDP";
+            isHVCDP.Name = "isHVCDP";
+            isHVCDP.ReadOnly = true;
+            // 
+            // TenurialCol
+            // 
+            TenurialCol.HeaderText = "Tenurial Status";
+            TenurialCol.Name = "TenurialCol";
+            TenurialCol.ReadOnly = true;
+            // 
+            // LandCategorySoilTypeCol
+            // 
+            LandCategorySoilTypeCol.HeaderText = "Land Category / Soil Type";
+            LandCategorySoilTypeCol.Name = "LandCategorySoilTypeCol";
+            LandCategorySoilTypeCol.ReadOnly = true;
+            // 
             // ContactNumberCol
             // 
             ContactNumberCol.HeaderText = "Contact No.";
@@ -221,27 +277,43 @@
             ContactNumberCol.Resizable = DataGridViewTriState.False;
             ContactNumberCol.SortMode = DataGridViewColumnSortMode.NotSortable;
             // 
-            // DOBCol
-            // 
-            DOBCol.HeaderText = "Date of Birth";
-            DOBCol.Name = "DOBCol";
-            DOBCol.ReadOnly = true;
-            DOBCol.Resizable = DataGridViewTriState.True;
-            DOBCol.SortMode = DataGridViewColumnSortMode.NotSortable;
-            // 
             // DateAppliedCol
             // 
             DateAppliedCol.HeaderText = "Date of Application Request";
             DateAppliedCol.Name = "DateAppliedCol";
             DateAppliedCol.ReadOnly = true;
             // 
+            // NorthAdjacentCol
+            // 
+            NorthAdjacentCol.HeaderText = "North Adjacent Owner";
+            NorthAdjacentCol.Name = "NorthAdjacentCol";
+            NorthAdjacentCol.ReadOnly = true;
+            // 
+            // SouthAdjacentCol
+            // 
+            SouthAdjacentCol.HeaderText = "South Adjacent Owner";
+            SouthAdjacentCol.Name = "SouthAdjacentCol";
+            SouthAdjacentCol.ReadOnly = true;
+            // 
+            // EastAdjacentCol
+            // 
+            EastAdjacentCol.HeaderText = "East Adjacent Owner";
+            EastAdjacentCol.Name = "EastAdjacentCol";
+            EastAdjacentCol.ReadOnly = true;
+            // 
+            // WestAdjacentCol
+            // 
+            WestAdjacentCol.HeaderText = "West Adjacent Owner";
+            WestAdjacentCol.Name = "WestAdjacentCol";
+            WestAdjacentCol.ReadOnly = true;
+            // 
             // ListInsuranceController
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(RemoveMemberBtn);
-            Controls.Add(DeclineMembershipBtn);
-            Controls.Add(ApproveMemberBtn);
+            Controls.Add(InactiveInsuranceBtn);
+            Controls.Add(DeclineInsuranceBtn);
+            Controls.Add(ApproveInsuranceBtn);
             Controls.Add(ApplyFilterBtn);
             Controls.Add(SearchBtn);
             Controls.Add(FilterSelectorCB);
@@ -249,6 +321,7 @@
             Controls.Add(MembersDataGrid);
             Name = "ListInsuranceController";
             Size = new Size(953, 577);
+            Load += ListInsuranceController_Load;
             ((System.ComponentModel.ISupportInitialize)MembersDataGrid).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -256,21 +329,31 @@
 
         #endregion
 
-        private Button RemoveMemberBtn;
-        private Button DeclineMembershipBtn;
-        private Button ApproveMemberBtn;
+        private Button InactiveInsuranceBtn;
+        private Button DeclineInsuranceBtn;
+        private Button ApproveInsuranceBtn;
         private Button ApplyFilterBtn;
         private Button SearchBtn;
         private ComboBox FilterSelectorCB;
         private TextBox SearchText;
         private DataGridView MembersDataGrid;
-        private DataGridViewTextBoxColumn PersonalIDCol;
+        private DataGridViewTextBoxColumn InsuranceID;
+        private DataGridViewTextBoxColumn FarmID;
         private DataGridViewCheckBoxColumn RemarksCol;
-        private DataGridViewTextBoxColumn Status;
+        private DataGridViewTextBoxColumn StatusCol;
         private DataGridViewTextBoxColumn FullNameCol;
         private DataGridViewTextBoxColumn RoleCol;
+        private DataGridViewTextBoxColumn CommodityCol;
+        private DataGridViewTextBoxColumn SqmCol;
+        private DataGridViewTextBoxColumn LocationCol;
+        private DataGridViewCheckBoxColumn isHVCDP;
+        private DataGridViewTextBoxColumn TenurialCol;
+        private DataGridViewTextBoxColumn LandCategorySoilTypeCol;
         private DataGridViewTextBoxColumn ContactNumberCol;
-        private DataGridViewTextBoxColumn DOBCol;
         private DataGridViewTextBoxColumn DateAppliedCol;
+        private DataGridViewTextBoxColumn NorthAdjacentCol;
+        private DataGridViewTextBoxColumn SouthAdjacentCol;
+        private DataGridViewTextBoxColumn EastAdjacentCol;
+        private DataGridViewTextBoxColumn WestAdjacentCol;
     }
 }

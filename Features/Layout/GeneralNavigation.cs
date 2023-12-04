@@ -37,7 +37,7 @@ namespace Agro.Features.Layout
 
 
 
-            if (_authenticationDTO.role != "TECHNICIAN")
+            if (_authenticationDTO.role != "TECHNICIAN" && _authenticationDTO.role != "ADMIN")
             {
                 ApplyMembershipBtn.Text = "Apply Membership";
                 CropInsuranceBtn.Text = "Apply Insurance";
@@ -49,7 +49,15 @@ namespace Agro.Features.Layout
             {
                 ApplyMembershipBtn.Text = "View Members";
                 CropInsuranceBtn.Text = "View Insurances";
-                CropInsuranceBtn.Visible = true;
+                ApplyMembershipBtn.Visible = false;
+                CropInsuranceBtn.Visible = false;
+                
+                if (_personData.IsApproved)
+                {
+                    ApplyMembershipBtn.Visible = true;
+                    CropInsuranceBtn.Visible = true;
+                }
+                
             }
         }
 
@@ -64,7 +72,7 @@ namespace Agro.Features.Layout
                 return;
 
 
-            if (_authenticationDTO.role == "TECHNICIAN")
+            if (_authenticationDTO.role == "TECHNICIAN" || _authenticationDTO.role == "ADMIN")
             {
                 ParentForm.Controls["HeaderPanel"].Controls["TitleLabel"].Text = "Members";
                 ParentForm.Controls["ControllerPanel"].Controls["ListMembershipController"].BringToFront();
@@ -82,12 +90,12 @@ namespace Agro.Features.Layout
             if (_authenticationDTO == null)
                 return;
 
-            if (_authenticationDTO.role == "TECHNICIAN")
+            if (_authenticationDTO.role == "TECHNICIAN" || _authenticationDTO.role == "ADMIN")
             {
                 // TODO Change it for insurance 
 
-                //ParentForm.Controls["HeaderPanel"].Controls["TitleLabel"].Text = "Membership";
-                //ParentForm.Controls["ControllerPanel"].Controls["ListMembershipController"].BringToFront();
+                ParentForm.Controls["headerpanel"].Controls["titlelabel"].Text = "Insurances";
+                ParentForm.Controls["controllerpanel"].Controls["ListInsuranceController"].BringToFront();
             }
             else
             {

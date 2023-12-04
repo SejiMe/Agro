@@ -55,10 +55,9 @@ public class FarmRepository : IFarmRepository
     public Farm GetFarm(int owner, string commodityName)
     {
         var res = _context.Farms
-            .Where(farm => farm.FK_Personal.PK_Personal == owner)
             .Include(farm => farm.FK_Address)
-            .Where(f => f.CommodityName == commodityName)
-            .Single() ;
+            .Where(farm => farm.FK_Personal.PK_Personal == owner && farm.CommodityName == commodityName)
+            .Single();
 
         return res;
     }

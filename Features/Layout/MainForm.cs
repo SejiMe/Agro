@@ -1,5 +1,6 @@
 ﻿using Agro.Data.Models;
 using Agro.Features.Authentication;
+using Agro.Features.Insurances;
 using Agro.Features.Person;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -23,7 +24,7 @@ namespace Agro.Features.Layout
         private readonly AuthForm _authform;
         private readonly GeneralNavigation _generalNavigation;
         private AuthenticationDTO authenticationDTO;
-        private Personal _personData;
+        private Personal? _personData;
 
         enum Roles
         {
@@ -74,7 +75,7 @@ namespace Agro.Features.Layout
 
 
             #region Controller Panel MAIN
-            if (user.role == Roles.FARMER.ToString() || user.role == Roles.ADMIN.ToString())
+            if (user.role == Roles.FARMER.ToString())
             {
 
                 var insuranceProfileController = ActivatorUtilities.CreateInstance<InsuranceProfileController>(_serviceProvider, authenticationDTO.PK_Personal);
@@ -94,14 +95,16 @@ namespace Agro.Features.Layout
             {
                 // TODO add list controllers
                 var listmembershipController = _serviceProvider.GetRequiredService<ListMembershipController>();
-
+                var listInsuranceController = _serviceProvider.GetRequiredService<ListInsuranceController>();
                 listmembershipController.Dock = DockStyle.Fill;
+                listInsuranceController.Dock = DockStyle.Fill;
                 
 
                 // if the technnician is not yet approved by admin
                 if (_personData.IsApproved)
                 {
                     ControllerPanel.Controls.Add(listmembershipController);
+                    ControllerPanel.Controls.Add(listInsuranceController);
                     // Add controller for insurance list
                 }
             }

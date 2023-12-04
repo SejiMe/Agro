@@ -107,6 +107,10 @@ namespace Agro.Features.Authentication
                     ParentForm.Hide();
                 }
             }
+            else
+            {
+                MessageBox.Show("Wrong password", "Invalid Password", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
        
             

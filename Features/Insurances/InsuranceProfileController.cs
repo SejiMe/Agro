@@ -140,9 +140,16 @@ namespace Agro.Features.Person
         private void FarmSelectCB_SelectedIndexChanged(object sender, EventArgs e)
         {
             FarmAddressText.Text = string.Empty;
-            if (addresses.TryGetValue(FarmSelectCB.SelectedText, out var SelectedAddress))
+            if (addresses.TryGetValue(FarmSelectCB.Text, out int SelectedAddress))
             {
-                farm = _farmRepository.GetFarm(SelectedAddress, FarmSelectCB.Text);
+                string commodityName = FarmSelectCB.Text;
+                if(FarmSelectCB.Text == "HVCDP")
+                {
+                    commodityName = "";
+                }
+
+
+                farm = _farmRepository.GetFarm(SelectedAddress, commodityName);
                 TenurialStatusText.Text = farm.TenurialStatus;
                 LandSoilText.Text = farm.LandCategorySoilType;
                 AreaSqmText.Text = farm.AreaSQM.ToString();
@@ -151,13 +158,13 @@ namespace Agro.Features.Person
                 EastAdjacentText.Text = farm.EastAdjacentOwner;
                 WestAdjacentText.Text = farm.WastAdjacentOwner;
 
-                if (farm.FK_Address.LotNumber != null && farm.FK_Address.LotNumber != "")
+                if (farm.FK_Address.LotNumber != null && farm.FK_Address.LotNumber != string.Empty)
                     FarmAddressText.Text = farm.FK_Address.LotNumber + ", ";
 
-                if (farm.FK_Address.Street != null)
+                if (farm.FK_Address.Street != null && farm.FK_Address.Street != string.Empty)
                     FarmAddressText.Text += farm.FK_Address.Street + ", ";
 
-                if (farm.FK_Address.Barangay != null)
+                if (farm.FK_Address.Barangay != null && farm.FK_Address.Barangay != string.Empty)
                     FarmAddressText.Text += farm.FK_Address.Barangay + ", ";
 
                 FarmAddressText.Text += farm.FK_Address.Municipality + ", ";
@@ -194,30 +201,37 @@ namespace Agro.Features.Person
                     break;
 
                 case "Save":
-                    SwitchReadOnlyControls(true);
-                    // TODO if has active Insurance Application
+
+                    var res = MessageBox.Show("Do you wish to save the changes?", "Save Insurance Profile", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                        if (res == DialogResult.Yes) { 
+                            SwitchReadOnlyControls(true);
+                        // TODO if has active Insurance Application
                     
-                    if(AreaSqmText.Text.Length > 0)
-                    {
-                        if (ValidInputNumber.IsMatch(AreaSqmText.Text))
+                        if(AreaSqmText.Text.Length > 0)
                         {
-                            farm.AreaSQM = int.Parse(AreaSqmText.Text);
+                            if (ValidInputNumber.IsMatch(AreaSqmText.Text))
+                            {
+                                farm.AreaSQM = int.Parse(AreaSqmText.Text);
+                            }
+                            else
+                            {
+                                MessageBox.Show("Invalid input in Area SQM please type the area of land in Square Meters", "Invalid Number Input", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return;
+                            }
                         }
-                        else
-                        {
-                            MessageBox.Show("Invalid input in Area SQM please type the area of land in Square Meters", "Invalid Number Input", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return;
-                        }
+
+                        farm.TenurialStatus = TenurialStatusText.Text;
+                        farm.NorthAdjacentOwner = NorthAdjacentText.Text;
+                        farm.SouthAdjacentOwner = SouthAdjacentText.Text;
+                        farm.EastAdjacentOwner = EastAdjacentText.Text;
+                        farm.WastAdjacentOwner = WestAdjacentText.Text;
+
+                        _personalRepository.Save();
+
+                        UpdateBtn.Text = "Update";
+
+                        SubmitBtn.Text = "Submit Application";
                     }
-
-                    farm.TenurialStatus = TenurialStatusText.Text;
-                    farm.NorthAdjacentOwner = NorthAdjacentText.Text;
-                    farm.SouthAdjacentOwner = SouthAdjacentText.Text;
-                    farm.EastAdjacentOwner = EastAdjacentText.Text;
-                    farm.WastAdjacentOwner = WestAdjacentText.Text;
-
-                    
-
                     break;
             }
         }

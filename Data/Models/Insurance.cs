@@ -22,7 +22,7 @@ public class Insurance
     public DateTime DateApplied { get; set; } = DateTime.Now;
 
     [AllowNull]
-    public DateTime DateModified { get; set; }
+    public DateTime? DateModified { get; set; }
 
     [Column("FK_Farm")]
     public Farm? FK_Farm { get; set; }

@@ -73,10 +73,12 @@ namespace Agro.Features.Person
             if (personData.SpouseName is not null)
                 SpouseText.Text = personData.SpouseName;
 
-           
+           if(personData.DateOfBirth is not null)
+            {
                 DateTime dt = (DateTime)personData.DateOfBirth;
                 DateOfBirth.Value = new DateTime(dt.Year, dt.Month, dt.Day);
 
+            }
             
 
 

@@ -61,7 +61,7 @@ namespace Agro.Features.Person
                 .ToArray();
         }
 
-        public void FillDataGridView()
+        private void FillDataGridView()
         {
             MembersDataGrid.Rows.Clear();
             switch (FilterSelectorCB.SelectedIndex)
@@ -105,7 +105,7 @@ namespace Agro.Features.Person
 
                         fullname += $", {application.FK_Personal.FirstName}";
 
-                        if (application.FK_Personal.MiddleName != null)
+                        if (application.FK_Personal.MiddleName != null && application.FK_Personal.MiddleName != string.Empty)
                             fullname += $" {application.FK_Personal.MiddleName[0]}.";
 
                         MembersDataGrid.Columns["DateAppliedCol"].Visible = true;
@@ -153,7 +153,7 @@ namespace Agro.Features.Person
 
                         fullname += $", {member.FirstName}";
 
-                        if (member.MiddleName != null)
+                        if (member.MiddleName != null && member.MiddleName != string.Empty)
                             fullname += $" {member.MiddleName[0]}.";
                         MembersDataGrid.Columns["DateAppliedCol"].Visible = false;
                         MembersDataGrid.Rows.Add(member.PK_Personal, member.IsApproved, member.IsApproved ? "MEMBER" : "", fullname, member.FK_User.Role, member.ContactNumber, member.DateOfBirth, null);

@@ -54,6 +54,7 @@ namespace Agro
             services.AddScoped<InsuranceProfileController>();
             services.AddScoped<MemberProfileController>();
             services.AddTransient<ListMembershipController>();
+            services.AddTransient<ListInsuranceController>();
 
             // Forms
             services.AddTransient<AddressForm>();
