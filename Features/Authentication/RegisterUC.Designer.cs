@@ -179,6 +179,7 @@
             ShowCB.TabIndex = 13;
             ShowCB.Text = "Show Password";
             ShowCB.UseVisualStyleBackColor = true;
+            ShowCB.CheckedChanged += ShowCB_CheckedChanged;
             // 
             // RegisterUC
             // 

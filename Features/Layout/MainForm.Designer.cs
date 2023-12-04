@@ -47,6 +47,7 @@
             // 
             // NavigationPanel
             // 
+            NavigationPanel.BackColor = Color.DarkGreen;
             NavigationPanel.Controls.Add(label1);
             NavigationPanel.Controls.Add(NavigationalButtonsPanel);
             NavigationPanel.Controls.Add(LogOutBtn);
@@ -63,6 +64,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.DarkTurquoise;
             label1.Location = new Point(0, 220);
             label1.Name = "label1";
             label1.Size = new Size(125, 21);
@@ -72,6 +74,7 @@
             // 
             // NavigationalButtonsPanel
             // 
+            NavigationalButtonsPanel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             NavigationalButtonsPanel.AutoSize = true;
             NavigationalButtonsPanel.Location = new Point(0, 257);
             NavigationalButtonsPanel.Name = "NavigationalButtonsPanel";
@@ -80,10 +83,11 @@
             // 
             // LogOutBtn
             // 
+            LogOutBtn.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             LogOutBtn.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            LogOutBtn.Location = new Point(11, 9);
+            LogOutBtn.Location = new Point(0, 9);
             LogOutBtn.Name = "LogOutBtn";
-            LogOutBtn.Size = new Size(92, 30);
+            LogOutBtn.Size = new Size(203, 30);
             LogOutBtn.TabIndex = 2;
             LogOutBtn.Text = "Log Out";
             LogOutBtn.UseVisualStyleBackColor = true;
@@ -94,6 +98,7 @@
             FullNameLabel.AutoSize = true;
             FullNameLabel.FlatStyle = FlatStyle.Flat;
             FullNameLabel.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            FullNameLabel.ForeColor = Color.LawnGreen;
             FullNameLabel.Location = new Point(8, 180);
             FullNameLabel.MinimumSize = new Size(180, 0);
             FullNameLabel.Name = "FullNameLabel";
@@ -116,6 +121,7 @@
             // 
             // HeaderPanel
             // 
+            HeaderPanel.BackColor = Color.MediumSeaGreen;
             HeaderPanel.Controls.Add(label3);
             HeaderPanel.Controls.Add(label2);
             HeaderPanel.Controls.Add(TitleLabel);

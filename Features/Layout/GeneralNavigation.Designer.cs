@@ -168,7 +168,7 @@
             // 
             AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
-            BackColor = SystemColors.AppWorkspace;
+            BackColor = Color.DarkGreen;
             Controls.Add(tableLayoutPanel1);
             Name = "GeneralNavigation";
             Size = new Size(181, 644);

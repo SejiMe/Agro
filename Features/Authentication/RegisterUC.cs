@@ -67,7 +67,7 @@ public partial class RegisterUC : UserControl
                 _ = UsernameText.Text.Remove(UsernameText.Text.Length - 1);
             else
                 UsernameText.Text = string.Empty;
-            
+
             return;
         }
 
@@ -84,13 +84,13 @@ public partial class RegisterUC : UserControl
         }
 
         if (string.IsNullOrEmpty(LastNameText.Text))
-        { 
+        {
             MessageBox.Show("Please Add Last Name", "Invalid Submission", MessageBoxButtons.OK, MessageBoxIcon.Error);
             return;
         }
 
-        if(string.IsNullOrEmpty(EmailText.Text))
-        { 
+        if (string.IsNullOrEmpty(EmailText.Text))
+        {
             MessageBox.Show("Add Email Address", "No Email", MessageBoxButtons.OK, MessageBoxIcon.Error);
             return;
         }
@@ -103,18 +103,33 @@ public partial class RegisterUC : UserControl
 
         string salt = BCrypt.GenerateSalt(10);
         string password = BCrypt.HashPassword(PasswordText.Text, salt);
-                
-        var result = _personalRepository.RegisterPerson(new Personal() { FirstName = FirstNameText.Text, LastName = LastNameText.Text, 
-            FK_User = new User() { Email = EmailText.Text, Password = password, Salt = salt, Role = RoleLabel.Text, UserName = UsernameText.Text } });
+
+        var result = _personalRepository.RegisterPerson(new Personal()
+        {
+            FirstName = FirstNameText.Text,
+            LastName = LastNameText.Text,
+            FK_User = new User() { Email = EmailText.Text, Password = password, Salt = salt, Role = RoleLabel.Text, UserName = UsernameText.Text }
+        });
 
 
         if (result != null)
         {
 
             _farmRepository.CreateInitialFarms(result);
-           var dialogRes =  MessageBox.Show("Successfully Created a new User", "Successful", MessageBoxButtons.OK);
-           if(dialogRes == DialogResult.OK)
-               Parent.Controls["AuthUC"].BringToFront();
+            var dialogRes = MessageBox.Show("Successfully Created a new User", "Successful", MessageBoxButtons.OK);
+            if (dialogRes == DialogResult.OK)
+                Parent.Controls["AuthUC"].BringToFront();
+        }
+    }
+
+    private void ShowCB_CheckedChanged(object sender, EventArgs e)
+    {
+        if (ShowCB.Checked)
+        {
+            PasswordText.UseSystemPasswordChar = false;
+        }else
+        {
+            PasswordText.UseSystemPasswordChar= true;
         }
     }
 }

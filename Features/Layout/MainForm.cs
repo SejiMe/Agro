@@ -42,6 +42,7 @@ namespace Agro.Features.Layout
             _generalNavigation = generalNavigation; 
             InitializeComponent();
 
+            _generalNavigation.Dock = DockStyle.Fill;
             NavigationalButtonsPanel.Controls.Add(_generalNavigation);
             Controls["HeaderPanel"].Controls["TitleLabel"].Text = "My Profile";
 
